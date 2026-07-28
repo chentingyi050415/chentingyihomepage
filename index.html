@@ -7,6 +7,7 @@
     <title>陈亭伊｜运营 / 策划 / 增长</title>
 
     <style>
+        /* ===== 原有基础样式保留并优化 ===== */
         :root {
             --bg: #06070b;
             --text: rgba(255, 255, 255, 0.93);
@@ -84,7 +85,6 @@
             text-rendering: optimizeLegibility;
             cursor: default;
         }
-
         a {
             color: inherit;
             text-decoration: none;
@@ -95,7 +95,7 @@
             border-radius: 12px;
         }
 
-        /* ============ 背景系统 ============ */
+        /* ========== 增强背景系统（更多动态） ========== */
         .bg-layer {
             position: fixed;
             inset: 0;
@@ -111,6 +111,17 @@
                 radial-gradient(ellipse 700px 400px at 78% 12%, rgba(94, 200, 242, 0.05), transparent 55%),
                 radial-gradient(ellipse 650px 450px at 50% 85%, rgba(52, 211, 153, 0.04), transparent 55%),
                 radial-gradient(ellipse 500px 300px at 35% 45%, rgba(255, 255, 255, 0.015), transparent 60%);
+            animation: gradientShift 20s ease-in-out infinite alternate;
+        }
+        @keyframes gradientShift {
+            0% {
+                opacity: 0.6;
+                transform: scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.2) rotate(2deg);
+            }
         }
         .bg-grid {
             position: absolute;
@@ -122,6 +133,18 @@
             opacity: 0.5;
             mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 25%, transparent 65%);
             -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 25%, transparent 65%);
+            animation: gridPulse 30s linear infinite;
+        }
+        @keyframes gridPulse {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0.5;
+            }
         }
         .bg-noise {
             position: absolute;
@@ -129,6 +152,16 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
             opacity: .22;
             mix-blend-mode: overlay;
+            animation: noiseFlicker 0.5s steps(1) infinite;
+        }
+        @keyframes noiseFlicker {
+            0%,
+            100% {
+                opacity: 0.22;
+            }
+            50% {
+                opacity: 0.18;
+            }
         }
         @media (prefers-color-scheme: light) {
             .bg-noise {
@@ -136,12 +169,12 @@
             }
         }
 
-        /* 浮动光斑 */
+        /* 更多浮动光斑 */
         .orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(90px);
-            will-change: transform;
+            will-change: transform, opacity;
             animation: orbFloat 22s var(--ease-smooth) infinite alternate;
         }
         .orb-1 {
@@ -173,6 +206,16 @@
             animation-duration: 30s;
             animation-delay: -6s;
         }
+        .orb-4 {
+            width: 280px;
+            height: 280px;
+            right: 10%;
+            top: 20%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent 60%);
+            opacity: 0.25;
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
         @keyframes orbFloat {
             0% {
                 transform: translate3d(0, 0, 0) scale(1);
@@ -182,19 +225,20 @@
             }
         }
 
-        /* 粒子 */
+        /* 粒子升级 */
         .particles {
             position: absolute;
             inset: 0;
         }
         .particle {
             position: absolute;
-            width: 2.5px;
-            height: 2.5px;
+            width: 3px;
+            height: 3px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.6);
             animation: particleDrift 14s var(--ease-smooth) infinite;
             opacity: 0;
+            box-shadow: 0 0 6px rgba(10, 132, 255, 0.3);
         }
         .particle:nth-child(1) {
             left: 12%;
@@ -215,9 +259,9 @@
             top: 18%;
             animation-delay: -4s;
             animation-duration: 16s;
-            width: 3px;
-            height: 3px;
-            background: rgba(94, 200, 242, 0.5);
+            width: 4px;
+            height: 4px;
+            background: rgba(94, 200, 242, 0.7);
         }
         .particle:nth-child(4) {
             left: 72%;
@@ -232,7 +276,7 @@
             animation-duration: 17s;
             width: 2px;
             height: 2px;
-            background: rgba(52, 211, 153, 0.45);
+            background: rgba(52, 211, 153, 0.7);
         }
         .particle:nth-child(6) {
             left: 40%;
@@ -255,7 +299,25 @@
             top: 8%;
             animation-delay: -6s;
             animation-duration: 11s;
-            background: rgba(10, 132, 255, 0.5);
+            background: rgba(10, 132, 255, 0.7);
+        }
+        .particle:nth-child(9) {
+            left: 90%;
+            top: 80%;
+            animation-delay: -8s;
+            animation-duration: 19s;
+            width: 2.5px;
+            height: 2.5px;
+            background: rgba(255, 215, 0, 0.5);
+        }
+        .particle:nth-child(10) {
+            left: 48%;
+            top: 8%;
+            animation-delay: -2.5s;
+            animation-duration: 14.5s;
+            width: 3.5px;
+            height: 3.5px;
+            background: rgba(255, 255, 255, 0.8);
         }
         @keyframes particleDrift {
             0% {
@@ -263,34 +325,35 @@
                 opacity: 0;
             }
             15% {
-                opacity: 0.8;
+                opacity: 0.9;
             }
             50% {
-                opacity: 0.35;
-                transform: translateY(-60px) translateX(25px) scale(1.6);
+                opacity: 0.4;
+                transform: translateY(-70px) translateX(30px) scale(1.8);
             }
             85% {
-                opacity: 0.7;
+                opacity: 0.8;
             }
             100% {
-                transform: translateY(-110px) translateX(-15px) scale(0.6);
+                transform: translateY(-130px) translateX(-20px) scale(0.5);
                 opacity: 0;
             }
         }
 
-        /* 光标光晕 */
+        /* 光标光晕增强 */
         .cursor-glow {
             position: fixed;
             z-index: 9999;
             pointer-events: none;
-            width: 380px;
-            height: 380px;
+            width: 480px;
+            height: 480px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(10, 132, 255, 0.06) 0%, rgba(94, 200, 242, 0.03) 30%, transparent 65%);
+            background: radial-gradient(circle, rgba(10, 132, 255, 0.08) 0%, rgba(94, 200, 242, 0.04) 30%, transparent 65%);
             transform: translate(-50%, -50%);
             transition: opacity 0.4s ease;
             opacity: 0;
             will-change: left, top, opacity;
+            mix-blend-mode: screen;
         }
         @media (max-width: 768px) {
             .cursor-glow {
@@ -299,11 +362,11 @@
         }
         @media (prefers-color-scheme: light) {
             .cursor-glow {
-                background: radial-gradient(circle, rgba(0, 122, 255, 0.07) 0%, rgba(50, 173, 230, 0.03) 30%, transparent 65%);
+                background: radial-gradient(circle, rgba(0, 122, 255, 0.10) 0%, rgba(50, 173, 230, 0.05) 30%, transparent 65%);
             }
         }
 
-        /* ============ 布局 ============ */
+        /* ========== 布局 ========== */
         .wrap {
             max-width: var(--max);
             margin: 0 auto;
@@ -312,7 +375,20 @@
             z-index: 1;
         }
 
-        /* ============ HERO - 深度玻璃卡片 ============ */
+        /* 滚动进度条 */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            z-index: 100;
+            background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+            width: 0%;
+            transition: width 0.2s ease;
+            box-shadow: 0 0 12px rgba(10, 132, 255, 0.5);
+        }
+
+        /* ========== HERO ========== */
         .hero {
             position: relative;
             border-radius: var(--radius-xl);
@@ -321,10 +397,7 @@
                     rgba(255, 255, 255, 0.07) 0%,
                     rgba(255, 255, 255, 0.035) 40%,
                     rgba(255, 255, 255, 0.02) 100%);
-            box-shadow:
-                var(--shadow-deep),
-                var(--shadow-glow),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            box-shadow: var(--shadow-deep), var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
             padding: 26px 28px;
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
@@ -335,10 +408,7 @@
         }
         .hero:hover {
             border-color: var(--line-glow);
-            box-shadow:
-                var(--shadow-deep),
-                0 0 90px rgba(10, 132, 255, 0.10),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-deep), 0 0 90px rgba(10, 132, 255, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
         @keyframes heroEnter {
             0% {
@@ -412,8 +482,6 @@
             align-items: flex-start;
             min-width: 0;
         }
-
-        /* 头像 - 玻璃徽标 */
         .avatar {
             width: 60px;
             height: 60px;
@@ -431,10 +499,7 @@
                     rgba(94, 200, 242, 0.12) 60%,
                     rgba(255, 255, 255, 0.04) 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow:
-                0 12px 34px rgba(0, 0, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                0 0 20px rgba(10, 132, 255, 0.08);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(10, 132, 255, 0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             user-select: none;
@@ -445,10 +510,7 @@
         }
         .avatar:hover {
             transform: scale(1.06) translateY(-3px) rotate(-2deg);
-            box-shadow:
-                0 18px 44px rgba(0, 0, 0, 0.35),
-                inset 0 1px 0 rgba(255, 255, 255, 0.14),
-                0 0 34px rgba(10, 132, 255, 0.14);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 34px rgba(10, 132, 255, 0.14);
         }
         @media (prefers-color-scheme: light) {
             .avatar {
@@ -483,6 +545,15 @@
             background-clip: text;
             color: transparent;
             line-height: 1.15;
+            animation: titleShimmer 6s ease-in-out infinite alternate;
+        }
+        @keyframes titleShimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         @media (prefers-color-scheme: light) {
             .name {
@@ -492,6 +563,7 @@
                 color: transparent;
             }
         }
+
         .roleTag {
             font-size: 13px;
             color: var(--muted);
@@ -505,6 +577,16 @@
             font-weight: 520;
             letter-spacing: 0.3px;
             transition: all 0.3s ease;
+            animation: tagPulse 3s ease-in-out infinite;
+        }
+        @keyframes tagPulse {
+            0%,
+            100% {
+                border-color: rgba(255, 255, 255, 0.14);
+            }
+            50% {
+                border-color: rgba(10, 132, 255, 0.4);
+            }
         }
         .roleTag:hover {
             border-color: rgba(255, 255, 255, 0.28);
@@ -692,6 +774,19 @@
             -webkit-backdrop-filter: blur(4px);
             font-weight: 500;
             letter-spacing: 0.2px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.2), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .btn:hover::after {
+            opacity: 1;
         }
         .btn:hover {
             transform: translateY(-2px);
@@ -701,7 +796,7 @@
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
         }
 
-        /* ============ DOCK - 悬浮导航 ============ */
+        /* ========== DOCK ========== */
         .dock {
             position: sticky;
             top: calc(14px + env(safe-area-inset-top));
@@ -739,6 +834,19 @@
             font-weight: 500;
             letter-spacing: 0.2px;
             cursor: pointer;
+            position: relative;
+        }
+        .dock a::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .dock a:hover::before {
+            opacity: 1;
         }
         .dock a:hover {
             transform: translateY(-3px);
@@ -758,7 +866,7 @@
             scroll-margin-top: 100px;
         }
 
-        /* ============ 卡片系统 ============ */
+        /* ========== 卡片 ========== */
         .sections {
             margin-top: 18px;
             display: flex;
@@ -823,6 +931,20 @@
             letter-spacing: 0.4px;
             color: var(--text);
             white-space: nowrap;
+            position: relative;
+        }
+        .sectionTitle h2::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transition: width 0.6s ease;
+        }
+        .card.reveal .sectionTitle h2::after {
+            width: 100%;
         }
         .sectionTitle .line {
             height: 1px;
@@ -831,7 +953,7 @@
             border-radius: 2px;
         }
 
-        /* Entry - 3D卡片 */
+        /* Entry */
         .entry {
             position: relative;
             z-index: 1;
@@ -845,6 +967,31 @@
             will-change: transform;
             transform-style: preserve-3d;
             perspective: 800px;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+            animation: entryFadeIn 0.6s var(--ease-out-expo) forwards;
+            animation-delay: calc(0.08s * var(--i, 0));
+        }
+        @keyframes entryFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .entry:nth-child(1) {
+            --i: 1;
+        }
+        .entry:nth-child(2) {
+            --i: 2;
+        }
+        .entry:nth-child(3) {
+            --i: 3;
+        }
+        .entry:nth-child(4) {
+            --i: 4;
+        }
+        .entry:nth-child(5) {
+            --i: 5;
         }
         @media (prefers-color-scheme: light) {
             .entry {
@@ -853,7 +1000,7 @@
             }
         }
         .entry:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.01);
             border-color: rgba(255, 255, 255, 0.16);
             background: rgba(255, 255, 255, 0.05);
             box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18), 0 0 22px rgba(10, 132, 255, 0.03);
@@ -987,6 +1134,18 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            display: inline-block;
+            animation: kpiPop 0.6s var(--ease-spring);
+        }
+        @keyframes kpiPop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
         @media (prefers-color-scheme: light) {
             .kpi {
@@ -1036,13 +1195,14 @@
             transform: translateX(-50%) scale(1);
         }
 
-        /* ============ 打印 ============ */
+        /* ========== 响应式 & 打印 ========== */
         @media print {
             .bg-layer,
             .dock,
             .toast,
             .cursor-glow,
-            .particles {
+            .particles,
+            #progressBar {
                 display: none !important;
             }
             body {
@@ -1087,25 +1247,26 @@
             .card.reveal {
                 animation: none !important;
             }
+            .entry {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
         }
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
             }
-            .orb {
-                animation: none;
-            }
-            .particle {
-                animation: none;
-                opacity: 0.3;
-            }
-            .hero {
-                animation: none;
-                opacity: 1;
-                transform: none;
-            }
-            .hero::after {
-                animation: none;
+            .orb,
+            .particle,
+            .bg-gradient,
+            .bg-grid,
+            .bg-noise,
+            .name,
+            .roleTag,
+            .hero::after,
+            .entry::before {
+                animation: none !important;
             }
             .card {
                 opacity: 1;
@@ -1115,6 +1276,11 @@
             .card.reveal {
                 animation: none;
             }
+            .entry {
+                opacity: 1;
+                transform: none;
+                animation: none !important;
+            }
             .chip,
             .tile,
             .dock a,
@@ -1122,21 +1288,23 @@
             .entry {
                 transition: none !important;
             }
-            .entry::before {
-                animation: none !important;
-                opacity: 0 !important;
-            }
             .avatar:hover {
                 transform: none;
             }
             .cursor-glow {
                 display: none !important;
             }
+            #progressBar {
+                display: none;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- 进度条 -->
+    <div id="progressBar"></div>
+
     <!-- 背景系统 -->
     <div class="bg-layer" aria-hidden="true">
         <div class="bg-gradient"></div>
@@ -1145,7 +1313,10 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
         <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
@@ -1174,11 +1345,13 @@
                         <div class="meta">
                             <a href="tel:18723250436" aria-label="拨打电话">18723250436</a>
                             <span class="sep">｜</span>
-                            <a href="mailto:2644156966@QQ.COM" aria-label="发送邮件">2644156966@QQ.COM</a>
+                            <a href="mailto:cty007376@gmail.com" aria-label="发送邮件">cty007376@gmail.com</a>
                             <span class="sep">｜</span>
-                            <span>女 · 共青团员</span>
+                            <span>共青团员</span>
                             <span class="sep">｜</span>
-                            <span>2005.3 · 重庆</span>
+                            <span>2005.3.7 · 重庆</span>
+                            <span class="sep">｜</span>
+                            <a href="https://chentingyi050415.github.io/chentingyi/homepage/" target="_blank" rel="noopener">个人主页</a>
                         </div>
                         <div class="meta2">
                             <strong>实习/项目经验：</strong>近3年 ｜ <strong>求职意向：</strong>运营、策划、增长 ｜ <strong>期望城市：</strong>川渝｜北京
@@ -1206,10 +1379,10 @@
                         <div class="tileHead">
                             <div class="tileTitle"><span class="tileIcon">✉️</span>邮箱</div>
                         </div>
-                        <div class="tileValue">2644156966@QQ.COM</div>
+                        <div class="tileValue">cty007376@gmail.com</div>
                         <div class="tileBtns">
-                            <a class="btn" href="mailto:2644156966@QQ.COM">发送</a>
-                            <button class="btn" type="button" data-copy="2644156966@QQ.COM">复制</button>
+                            <a class="btn" href="mailto:cty007376@gmail.com">发送</a>
+                            <button class="btn" type="button" data-copy="cty007376@gmail.com">复制</button>
                         </div>
                     </div>
                     <div class="tile">
@@ -1286,9 +1459,9 @@
                                 <div class="right">2026.07 – 至今</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>党建内容运营：</strong>撰写党建、企业文化、主题活动宣传稿件，运营企业宣传平台，完成图文编辑、校对，把控内容合规性。</li>
-                                <li><strong>活动宣传采编：</strong>跟进党群活动拍摄纪实、短视频剪辑，归集整理宣传素材，定期统计传播数据并输出效果复盘。</li>
-                                <li><strong>宣传流程标准化：</strong>梳理宣传台账，搭建素材归档、内容审核 SOP，制作党建展板、活动简报等各类线下线上宣传物料。</li>
+                                <li><strong>党建内容运营：</strong>严把宣传内容政治关、导向关，独立负责党建及企业文化稿件撰写、图文编辑与平台运营，确保信息发布精准规范。</li>
+                                <li><strong>活动宣传采编：</strong>主动学习并善用AI辅助工具（文案生成、视频剪辑、视觉设计）跟进党群活动拍摄纪实、短视频剪辑，归集整理宣传素材，定期统计传播数据并输出效果复盘。</li>
+                                <li><strong>宣传流程标准化：</strong>梳理宣传台账，搭建素材归档、内容审核SOP，制作党建展板、活动简报等各类线上线下宣传物料</li>
                             </ul>
                         </div>
                     </div>
@@ -1302,9 +1475,9 @@
                                 <div class="right">2025.09 – 2026.01</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>流量策划：</strong>独立完成热榜制作全流程；优化热榜逻辑，提升内容精准度，助力流量分发效率提升。</li>
-                                <li><strong>数据统计分析：</strong>完成近 <span class="kpi">30</span> 位财经博主数据全维度统计，输出覆盖产出、传播数据的分析报告；拆解 <span class="kpi">10+</span> 领域抖音博主爆款逻辑，总结选题方向与内容结构，为增长提供选题参考。</li>
-                                <li><strong>流程优化：</strong>参与完善支付宝电鳗平台分发 SOP，补充关键操作节点；整理任务错误统计表，为降低运营失误、提升效率提供数据支撑。</li>
+                                <li><strong>流量策划：</strong>热榜制作：优化热榜逻辑，提升内容精准度，提升流量分发效率。</li>
+                                <li><strong>数据分析：</strong>完成近 <span class="kpi" data-count="30">30</span> 位财经博主数据全维度统计，输出覆盖产出、传播数据的分析报告：拆解 <span class="kpi" data-count="10">10+</span> 领域抖音博主爆款逻辑，总结选题方向与内容结构，为增长提供选题参考。</li>
+                                <li><strong>优化：</strong>完善支付宝电鳗平台分发SOP，补充关键操作节点：整理任务错误统计表，为降低运营失误、提升效率提供数据支撑。</li>
                             </ul>
                         </div>
                     </div>
@@ -1318,9 +1491,9 @@
                                 <div class="right">2025.06 – 2025.09</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>审核生态监控：</strong>牵头完成 Slack、Zendesk 等 <span class="kpi">12</span> 个第三方平台 OAuth 接入，建立"资料模板 + 审核清单 + 回调校验"SOP，实现平均审核时长 <span class="kpi">6 天</span>、一次通过率 <span class="kpi">85%</span>。</li>
-                                <li><strong>GTM / 对外：</strong>策划执行清华、北大等 <span class="kpi">6</span> 场高校推介会，统筹讲稿、Demo 等物料，累计到场 <span class="kpi">1100+</span>、意向 <span class="kpi">420</span>、当场注册 <span class="kpi">230</span>；输出中英双语 ONE-PAGER、FAQ、集成白皮书，支撑 BD 外联与官网转化；对接海外开发者/伙伴 <span class="kpi">100+</span> 场会议，促成 <span class="kpi">32</span> 家试用、<span class="kpi">10</span> 家 PoC、<span class="kpi">3</span> 家长期合作。</li>
-                                <li><strong>招聘优化：</strong>优化（投递→筛选→约面→反馈）流程，将面试周期压缩至 <span class="kpi">7 天</span>，沉淀面试题库与候选人标签规则。</li>
+                                <li><strong>审核生态监控：</strong>牵头完成Slack、Zendesk等 <span class="kpi" data-count="12">12</span> 个第三方平台OAuth接入，建立“资料模板 \(^+\) 审核清单 \(^+\) 回调校验”SOP，实现平均审核时长 <span class="kpi" data-count="6">6</span> 天、一次通过率 <span class="kpi" data-count="85">85%</span>。</li>
+                                <li><strong>GTM/对外：</strong>策划执行清华、北大等 <span class="kpi" data-count="6">6</span> 场高校推介会，统筹讲稿、Demo等物料，累计到场 <span class="kpi" data-count="1100">1100+</span>、意向 <span class="kpi" data-count="420">420</span>、当场注册 <span class="kpi" data-count="230">230</span>；输出中英双语ONE-PAGER、FAQ、集成白皮书，支撑BD外联与官网转化；对接海外开发者／伙伴 <span class="kpi" data-count="100">100+</span> 场会议，促成 <span class="kpi" data-count="32">32</span> 家试用、<span class="kpi" data-count="10">10</span> 家PoC、<span class="kpi" data-count="3">3</span> 家长期合作。</li>
+                                <li><strong>招聘优化：</strong>（投递－筛选－约面－反馈），将面试周期压缩至 <span class="kpi" data-count="7">7</span> 天，沉淀面试题库与候选人标签规则</li>
                             </ul>
                         </div>
                     </div>
@@ -1334,9 +1507,8 @@
                                 <div class="right">2025.01 – 2025.05</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>数据标注与清洗：</strong>收集与结构化 <span class="kpi">20,000+</span> 条目标人才数据，完成去重与字段统一，系统化上传 100% 完成。</li>
-                                <li><strong>人才建联：</strong>基于需求画像，锁定并触达 <span class="kpi">500+</span> 高潜候选人，达成合作 <span class="kpi">50+</span>；沉淀"人才 mapping"SOP，支持半导体与海外医疗等跨部门项目。</li>
-                                <li><strong>质量保障：</strong>负责薪资与标签的可视化标注与抽样校验，保障数据标注一致性 <span class="kpi">≥97%</span>、抽检错误率 <span class="kpi">≤3%</span>。</li>
+                                <li><strong>数据标注、数据清洗：</strong>收集与结构化 <span class="kpi" data-count="20000">20,000+</span> 条目目标人才数据，完成去重与字段统一；系统化上传100%完成。</li>
+                                <li><strong>建联人才：</strong>基于需求画像，锁定并触达 <span class="kpi" data-count="500">500+</span> 高潜候选人，达成合作 <span class="kpi" data-count="50">50+</span> ：沉淀“人才mapping”SOP，支持半导体与海外医疗等跨部门项目。负责薪资与标签的可视化标注与抽样校验，保障数据标注一致性 <span class="kpi" data-count="97">≥97%</span> 、抽检错误率 <span class="kpi" data-count="3">≤3%</span></li>
                             </ul>
                         </div>
                     </div>
@@ -1354,8 +1526,8 @@
                     <div class="entry">
                         <div class="entry-content">
                             <div class="row">
-                                <div class="left">NCDA 未来设计师大赛 · 北京市三等奖</div>
-                                <div class="mid">摄影 / 后期剪辑 / 脚本构思</div>
+                                <div class="left">NCDA未来设计师大赛北京市三等奖</div>
+                                <div class="mid">摄影后期剪辑脚本构思</div>
                                 <div class="right">2025.03 – 至今</div>
                             </div>
                         </div>
@@ -1364,8 +1536,8 @@
                     <div class="entry">
                         <div class="entry-content">
                             <div class="row">
-                                <div class="left">中国移动创客比赛 · 颜探网页开发 · 二等奖</div>
-                                <div class="mid">网页开发 / UI 设计</div>
+                                <div class="left">中国移动创客比赛-颜探网页开发二等奖</div>
+                                <div class="mid">网页开发、UI设计</div>
                                 <div class="right">2024.10 – 2024.12</div>
                             </div>
                         </div>
@@ -1377,9 +1549,6 @@
                                 <div class="left">新媒体视域下少数民族非遗文化的创新传播与立法传承——以回族民谣文化为例</div>
                                 <div class="mid">队长</div>
                                 <div class="right">2023.10 – 2024.05</div>
-                            </div>
-                            <div class="subline">
-                                从内容策划到制作、数据分析到运营推广，具备扎实的理论基础与丰富的实践经验。项目编号：QMRP2023110913
                             </div>
                         </div>
                     </div>
@@ -1394,20 +1563,20 @@
 
     <script>
         (function() {
+            'use strict';
+
             // ===== 光标光晕 =====
             const cursorGlow = document.getElementById('cursorGlow');
             let glowTimeout;
-            let mouseX = -500;
-            let mouseY = -500;
-            let currentX = -500;
-            let currentY = -500;
+            let mouseX = -500,
+                mouseY = -500,
+                currentX = -500,
+                currentY = -500;
 
             document.addEventListener('mousemove', function(e) {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
-                if (cursorGlow) {
-                    cursorGlow.style.opacity = '1';
-                }
+                if (cursorGlow) cursorGlow.style.opacity = '1';
                 clearTimeout(glowTimeout);
                 glowTimeout = setTimeout(function() {
                     if (cursorGlow) cursorGlow.style.opacity = '0';
@@ -1429,23 +1598,61 @@
             }
             animateGlow();
 
+            // ===== 滚动进度条 =====
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + '%';
+            }, { passive: true });
+
             // ===== 卡片入场观察 =====
             const cards = document.querySelectorAll('.card');
             const revealIO = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
                     if (e.isIntersecting) {
                         e.target.classList.add('reveal');
+                        // 触发数字滚动
+                        const kpis = e.target.querySelectorAll('.kpi[data-count]');
+                        kpis.forEach(function(el) {
+                            const target = parseInt(el.dataset.count, 10);
+                            if (!isNaN(target) && !el.dataset.animated) {
+                                el.dataset.animated = 'true';
+                                let current = 0;
+                                const step = Math.ceil(target / 60);
+                                const timer = setInterval(function() {
+                                    current += step;
+                                    if (current >= target) {
+                                        current = target;
+                                        clearInterval(timer);
+                                    }
+                                    el.textContent = current + (el.textContent.includes('+') ? '+' :
+                                    '');
+                                    if (el.textContent.includes('%')) {
+                                        el.textContent = current + '%';
+                                    } else if (el.textContent.includes('≥')) {
+                                        el.textContent = '≥' + current + '%';
+                                    } else if (el.textContent.includes('≤')) {
+                                        el.textContent = '≤' + current + '%';
+                                    } else if (el.textContent.includes('+')) {
+                                        el.textContent = current + '+';
+                                    } else {
+                                        el.textContent = current;
+                                    }
+                                }, 20);
+                            }
+                        });
                         revealIO.unobserve(e.target);
                     }
                 });
-            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+            }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
             cards.forEach(function(c) { revealIO.observe(c); });
 
             // ===== Dock 滚动监听 =====
             const dockLinks = Array.from(document.querySelectorAll('.dock a[data-target]'));
-            const spySections = dockLinks
-                .map(function(a) { return document.getElementById(a.dataset.target); })
-                .filter(Boolean);
+            const spySections = dockLinks.map(function(a) { return document.getElementById(a.dataset.target); }).filter(
+            Boolean);
 
             function setActive(id) {
                 dockLinks.forEach(function(a) {
@@ -1454,8 +1661,7 @@
             }
 
             const spyIO = new IntersectionObserver(function(entries) {
-                const visible = entries
-                    .filter(function(e) { return e.isIntersecting; })
+                const visible = entries.filter(function(e) { return e.isIntersecting; })
                     .sort(function(a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
                 if (visible && visible.target && visible.target.id) {
                     setActive(visible.target.id);
@@ -1465,7 +1671,7 @@
             spySections.forEach(function(s) { spyIO.observe(s); });
             if (spySections.length > 0) setActive(spySections[0].id);
 
-            // ===== Entry 3D 倾斜效果 =====
+            // ===== Entry 3D 倾斜 =====
             const entries = document.querySelectorAll('.entry');
             entries.forEach(function(entry) {
                 entry.addEventListener('mousemove', function(e) {
@@ -1477,23 +1683,23 @@
                     const rotateX = ((y - centerY) / centerY) * -4;
                     const rotateY = ((x - centerX) / centerX) * 4;
                     entry.style.transform =
-                        'translateY(-4px) perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' +
+                        'translateY(-4px) scale(1.01) perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' +
                         rotateY + 'deg)';
-                    entry.style.transition = 'transform 0.15s ease-out, border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease';
+                    entry.style.transition =
+                        'transform 0.15s ease-out, border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease';
                 });
                 entry.addEventListener('mouseleave', function() {
                     entry.style.transform =
-                        'translateY(0px) perspective(800px) rotateX(0deg) rotateY(0deg)';
+                        'translateY(0px) perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
                     entry.style.transition =
                         'transform 0.6s cubic-bezier(.16, 1, .3, 1), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease';
                 });
             });
 
-            // ===== 打印按钮 =====
-            const printBtn = document.getElementById('printBtn');
-            if (printBtn) {
-                printBtn.addEventListener('click', function() { window.print(); });
-            }
+            // ===== 打印 =====
+            document.getElementById('printBtn').addEventListener('click', function() {
+                window.print();
+            });
 
             // ===== Toast + 复制 =====
             const toast = document.getElementById('toast');
@@ -1547,6 +1753,28 @@
                 cards[0].classList.add('reveal');
                 revealIO.unobserve(cards[0]);
             }
+
+            // ===== 按钮涟漪效果（鼠标移动） =====
+            document.querySelectorAll('.btn').forEach(function(btn) {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    btn.style.setProperty('--mx', x + 'px');
+                    btn.style.setProperty('--my', y + 'px');
+                });
+            });
+            // Dock 链接也加涟漪
+            document.querySelectorAll('.dock a').forEach(function(a) {
+                a.addEventListener('mousemove', function(e) {
+                    const rect = a.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    a.style.setProperty('--mx', x + 'px');
+                    a.style.setProperty('--my', y + 'px');
+                });
+            });
+
         })();
     </script>
 </body>
