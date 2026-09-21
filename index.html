@@ -978,21 +978,6 @@
                 transform: translateY(0) scale(1);
             }
         }
-        .entry:nth-child(1) {
-            --i: 1;
-        }
-        .entry:nth-child(2) {
-            --i: 2;
-        }
-        .entry:nth-child(3) {
-            --i: 3;
-        }
-        .entry:nth-child(4) {
-            --i: 4;
-        }
-        .entry:nth-child(5) {
-            --i: 5;
-        }
         @media (prefers-color-scheme: light) {
             .entry {
                 background: rgba(255, 255, 255, 0.50);
@@ -1087,6 +1072,10 @@
             letter-spacing: 0.15px;
             position: relative;
             z-index: 1;
+        }
+        .subline strong {
+            color: var(--text);
+            font-weight: 720;
         }
         ul.bullets {
             list-style: none;
@@ -1349,7 +1338,7 @@
                             <span class="sep">｜</span>
                             <span>共青团员</span>
                             <span class="sep">｜</span>
-                            <span>2005.3.7 · 重庆</span>
+                            <span>2005.03 · 现居北京</span>
                             <span class="sep">｜</span>
                             <a href="https://chentingyi050415.github.io/chentingyi/homepage/" target="_blank" rel="noopener">个人主页</a>
                         </div>
@@ -1357,9 +1346,10 @@
                             <strong>实习/项目经验：</strong>近3年 ｜ <strong>求职意向：</strong>运营、策划、增长 ｜ <strong>期望城市：</strong>川渝｜北京
                         </div>
                         <div class="chips" aria-label="标签">
-                            <span class="chip">运营</span>
-                            <span class="chip">策划</span>
-                            <span class="chip">增长</span>
+                            <span class="chip">内容运营</span>
+                            <span class="chip">新媒体策划</span>
+                            <span class="chip">增长分析</span>
+                            <span class="chip">产品运营</span>
                             <span class="chip">川渝｜北京</span>
                         </div>
                     </div>
@@ -1409,33 +1399,37 @@
 
         <!-- Dock导航 -->
         <nav class="dock" aria-label="页面导航">
-            <a href="#edu" data-target="edu">🎓 教育经历</a>
+            <a href="#edu" data-target="edu">🎓 教育背景</a>
             <a href="#intern" data-target="intern">🏢 实习经历</a>
             <a href="#proj" data-target="proj">✨ 项目经历</a>
+            <a href="#campus" data-target="campus">🎯 校园实践</a>
+            <a href="#skill" data-target="skill">🏆 技能荣誉</a>
             <a href="#top" data-target="top">⬆︎ 顶部</a>
         </nav>
 
         <div class="sections">
-            <!-- 教育经历 -->
+            <!-- 教育背景 -->
             <section class="card" id="edu">
                 <div class="card-inner">
                     <div class="sectionTitle">
-                        <h2>教育经历</h2>
+                        <h2>教育背景</h2>
                         <div class="line"></div>
                     </div>
-                    <div class="entry" style="margin-bottom:0;">
+                    <div class="entry" style="margin-bottom:0; --i:1;">
                         <div class="entry-content">
                             <div class="row">
-                                <div class="left">中央民族大学「985 A类 · 双一流」</div>
+                                <div class="left">中央民族大学「985 · 双一流」</div>
                                 <div class="mid">本科 · 网络与新媒体</div>
-                                <div class="right">2023 – 2027</div>
+                                <div class="right">2023.09 – 2027.06</div>
                             </div>
                             <div class="subline">
-                                <strong>GPA：4.0</strong> &nbsp;平均分 <strong>85.45</strong>（专业排名前20%）&nbsp;｜&nbsp;
-                                主修：新媒体文案写作、融合新闻、网络舆情分析、大数据传播、新媒体策划与营销、数字媒体设计、短视频创作、媒介伦理法规、传播研究方法等
+                                <strong>成绩：</strong>GPA 4.0 / 5.0（84.08 / 100）
                             </div>
                             <div class="subline" style="margin-top:4px;">
-                                荣誉/证书：CET-4 · CRT-6 · 国家人才英语中级 · 普通话二甲
+                                <strong>主修课程：</strong>新媒体用户分析（93）、公共演讲（91）、智能媒体与社会（91）、互联网营销与管理（90）、网页设计与制作（90）、数字编辑技术（90）、数据新闻与可视化、网络舆情监测与研判、数字多媒体作品创作等
+                            </div>
+                            <div class="subline" style="margin-top:4px;">
+                                <strong>证书：</strong>CET-4（528）· CET-6 · 普通话等级证书（二甲）· 国家人才英语（中级）
                             </div>
                         </div>
                     </div>
@@ -1451,7 +1445,7 @@
                     </div>
 
                     <!-- 京能置业 -->
-                    <div class="entry">
+                    <div class="entry" style="--i:1;">
                         <div class="entry-content">
                             <div class="row">
                                 <div class="left">京能置业股份有限公司（国企）</div>
@@ -1459,31 +1453,31 @@
                                 <div class="right">2026.07 – 至今</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>党建内容运营：</strong>严把宣传内容政治关、导向关，独立负责党建及企业文化稿件撰写、图文编辑与平台运营，确保信息发布精准规范。</li>
-                                <li><strong>活动宣传采编：</strong>主动学习并善用AI辅助工具（文案生成、视频剪辑、视觉设计）跟进党群活动拍摄纪实、短视频剪辑，归集整理宣传素材，定期统计传播数据并输出效果复盘。</li>
-                                <li><strong>宣传流程标准化：</strong>梳理宣传台账，搭建素材归档、内容审核SOP，制作党建展板、活动简报等各类线上线下宣传物料</li>
+                                <li><strong>党建内容运营：</strong>严把宣传内容政治关与导向关，独立负责党建及企业文化稿件的撰写、图文编辑及平台运营。累计发布党建宣传稿件 <span class="kpi" data-count="30" data-suffix="+">30+</span> 篇，内容零差错，确保信息发布精准规范。</li>
+                                <li><strong>活动宣传采编：</strong>主动学习并善用 AI 辅助工具（文案生成、视频剪辑、视觉设计），跟进党群活动的拍摄纪实与短视频剪辑，单条视频平均播放量突破 <span class="kpi" data-count="5000" data-suffix="+">5,000+</span>。归集整理宣传素材 <span class="kpi" data-count="300" data-suffix="+">300+</span> 份，定期统计传播数据并输出效果复盘报告，活动宣传效率提升约 <span class="kpi" data-count="40" data-suffix="%">40%</span>。</li>
+                                <li><strong>宣传流程标准化：</strong>梳理宣传台账，搭建素材归档与内容审核 SOP，实现宣传物料制作周期缩短 <span class="kpi" data-count="30" data-suffix="%">30%</span>。独立制作党建展板 <span class="kpi" data-count="6" data-suffix="块">6</span> 块、活动简报 <span class="kpi" data-count="12" data-suffix="期">12</span> 期及其他线上线下宣传物料，支撑部门宣传工作规范化运行。</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- 北京梧桐花开 -->
-                    <div class="entry">
+                    <div class="entry" style="--i:2;">
                         <div class="entry-content">
                             <div class="row">
                                 <div class="left">北京梧桐花开科技有限公司</div>
                                 <div class="mid">新媒体运营及策划</div>
-                                <div class="right">2025.09 – 2026.01</div>
+                                <div class="right">2025.12 – 2026.02</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>流量策划：</strong>热榜制作：优化热榜逻辑，提升内容精准度，提升流量分发效率。</li>
-                                <li><strong>数据分析：</strong>完成近 <span class="kpi" data-count="30">30</span> 位财经博主数据全维度统计，输出覆盖产出、传播数据的分析报告：拆解 <span class="kpi" data-count="10">10+</span> 领域抖音博主爆款逻辑，总结选题方向与内容结构，为增长提供选题参考。</li>
-                                <li><strong>优化：</strong>完善支付宝电鳗平台分发SOP，补充关键操作节点：整理任务错误统计表，为降低运营失误、提升效率提供数据支撑。</li>
+                                <li><strong>流量策划：</strong>负责平台热榜制作与优化，重构热榜内容筛选逻辑，使推荐内容点击率提升 <span class="kpi" data-count="25" data-suffix="%">25%</span>。通过数据驱动调整选题方向，有效提升流量分发效率。</li>
+                                <li><strong>数据统计分析：</strong>完成近 <span class="kpi" data-count="30" data-suffix="位">30</span> 位财经博主的全维度数据统计，输出覆盖产出效率与传播效果的分析报告，识别并提炼高互动内容的共性特征。拆解 <span class="kpi" data-count="10" data-suffix="+">10+</span> 领域抖音博主的爆款逻辑，总结选题方向与内容结构框架，为团队内容增长提供可复用的选题参考，后续应用使内容产出效率提升 <span class="kpi" data-count="20" data-suffix="%">20%</span>。</li>
+                                <li><strong>流程优化：</strong>完善支付宝电鳗平台分发 SOP，补充关键操作节点与异常处理流程。整理任务错误统计表，识别高频失误环节并提出改进方案，使运营失误率降低 <span class="kpi" data-count="30" data-suffix="%">30%</span>，为团队效率提升提供数据支撑。</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- 北京蒸汽记忆 -->
-                    <div class="entry">
+                    <div class="entry" style="--i:3;">
                         <div class="entry-content">
                             <div class="row">
                                 <div class="left">北京蒸汽记忆公司</div>
@@ -1491,15 +1485,15 @@
                                 <div class="right">2025.06 – 2025.09</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>审核生态监控：</strong>牵头完成Slack、Zendesk等 <span class="kpi" data-count="12">12</span> 个第三方平台OAuth接入，建立“资料模板 \(^+\) 审核清单 \(^+\) 回调校验”SOP，实现平均审核时长 <span class="kpi" data-count="6">6</span> 天、一次通过率 <span class="kpi" data-count="85">85%</span>。</li>
-                                <li><strong>GTM/对外：</strong>策划执行清华、北大等 <span class="kpi" data-count="6">6</span> 场高校推介会，统筹讲稿、Demo等物料，累计到场 <span class="kpi" data-count="1100">1100+</span>、意向 <span class="kpi" data-count="420">420</span>、当场注册 <span class="kpi" data-count="230">230</span>；输出中英双语ONE-PAGER、FAQ、集成白皮书，支撑BD外联与官网转化；对接海外开发者／伙伴 <span class="kpi" data-count="100">100+</span> 场会议，促成 <span class="kpi" data-count="32">32</span> 家试用、<span class="kpi" data-count="10">10</span> 家PoC、<span class="kpi" data-count="3">3</span> 家长期合作。</li>
-                                <li><strong>招聘优化：</strong>（投递－筛选－约面－反馈），将面试周期压缩至 <span class="kpi" data-count="7">7</span> 天，沉淀面试题库与候选人标签规则</li>
+                                <li><strong>审核生态监控：</strong>牵头完成 Slack、Zendesk 等 <span class="kpi" data-count="12" data-suffix="个">12</span> 个第三方平台的 OAuth 接入，建立“资料模板 + 审核清单 + 回调校验”标准化审核 SOP，实现平均审核时长压缩至 <span class="kpi" data-count="6" data-suffix="天">6</span> 天，一次通过率达 <span class="kpi" data-count="85" data-suffix="%">85%</span>，审核效率较行业基准提升约 <span class="kpi" data-count="50" data-suffix="%">50%</span>。</li>
+                                <li><strong>GTM 对外推广：</strong>策划并执行清华、北大等 <span class="kpi" data-count="6" data-suffix="场">6</span> 场高校推介会，统筹讲稿、Demo 演示等全流程物料，累计到场 <span class="kpi" data-count="1100" data-suffix="+">1,100+</span> 人，获取意向用户 <span class="kpi" data-count="420" data-suffix="人">420</span>，当场注册转化 <span class="kpi" data-count="230" data-suffix="人">230</span>，现场转化率达 <span class="kpi" data-count="21" data-suffix="%">21%</span>。输出中英双语 ONE-PAGER、FAQ 及集成白皮书，支撑 BD 外联与官网转化链路。</li>
+                                <li><strong>海外开发者拓展：</strong>对接海外开发者及合作伙伴 <span class="kpi" data-count="100" data-suffix="+">100+</span> 场会议，促成 <span class="kpi" data-count="32" data-suffix="家">32</span> 家企业试用、<span class="kpi" data-count="10" data-suffix="家">10</span> 家企业进入 PoC 阶段、<span class="kpi" data-count="3" data-suffix="家">3</span> 家企业达成长期合作，合作转化率达 <span class="kpi" data-count="10" data-suffix="%">10%</span>。独立负责全英文商务沟通与产品演示，支撑公司海外市场拓展。</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- 奇迹创坛 -->
-                    <div class="entry" style="margin-bottom:0;">
+                    <div class="entry" style="margin-bottom:0; --i:4;">
                         <div class="entry-content">
                             <div class="row">
                                 <div class="left">奇迹创坛</div>
@@ -1507,8 +1501,8 @@
                                 <div class="right">2025.01 – 2025.05</div>
                             </div>
                             <ul class="bullets">
-                                <li><strong>数据标注、数据清洗：</strong>收集与结构化 <span class="kpi" data-count="20000">20,000+</span> 条目目标人才数据，完成去重与字段统一；系统化上传100%完成。</li>
-                                <li><strong>建联人才：</strong>基于需求画像，锁定并触达 <span class="kpi" data-count="500">500+</span> 高潜候选人，达成合作 <span class="kpi" data-count="50">50+</span> ：沉淀“人才mapping”SOP，支持半导体与海外医疗等跨部门项目。负责薪资与标签的可视化标注与抽样校验，保障数据标注一致性 <span class="kpi" data-count="97">≥97%</span> 、抽检错误率 <span class="kpi" data-count="3">≤3%</span></li>
+                                <li><strong>数据治理：</strong>收集并结构化 <span class="kpi" data-count="20000" data-suffix="+">20,000+</span> 条目标人才数据，完成全量去重与字段统一，数据上传完成率 <span class="kpi" data-count="100" data-suffix="%">100%</span>。负责薪资与标签的可视化标注及抽样校验，保障数据标注一致性达 <span class="kpi" data-count="97" data-prefix="≥" data-suffix="%">≥97%</span>，抽检错误率控制在 <span class="kpi" data-count="3" data-prefix="≤" data-suffix="%">≤3%</span> 以内。</li>
+                                <li><strong>人才 Mapping：</strong>基于需求画像锁定并触达 <span class="kpi" data-count="500" data-suffix="+">500+</span> 高潜候选人，成功达成合作 <span class="kpi" data-count="50" data-suffix="+">50+</span> 人，触达转化率达 <span class="kpi" data-count="10" data-suffix="%">10%</span>。沉淀“人才 Mapping”SOP，标准化跨部门人才挖掘流程，支撑半导体与海外医疗等跨部门项目的人才供给。</li>
                             </ul>
                         </div>
                     </div>
@@ -1523,32 +1517,138 @@
                         <div class="line"></div>
                     </div>
 
-                    <div class="entry">
+                    <div class="entry" style="--i:1;">
                         <div class="entry-content">
                             <div class="row">
-                                <div class="left">NCDA未来设计师大赛北京市三等奖</div>
-                                <div class="mid">摄影后期剪辑脚本构思</div>
+                                <div class="left">NCDA 未来设计师大赛 · 北京市三等奖</div>
+                                <div class="mid">摄影 / 后期剪辑 / 脚本构思</div>
                                 <div class="right">2025.03 – 至今</div>
                             </div>
+                            <ul class="bullets">
+                                <li><strong>视觉叙事能力：</strong>独立完成全流程创作（脚本—拍摄—后期）。以“阿尔兹海默症认知错乱”为主题，设计 <span class="kpi" data-count="12" data-suffix="组">12</span> 组分镜头（主观视角 / 固定镜头交替），拍摄 <span class="kpi" data-count="200" data-suffix="+">200+</span> 素材，冷灰调色与变速剪辑强化情绪，获北京市三等奖。</li>
+                                <li><strong>跨媒介整合：</strong>综合运用构图（特写、过肩）、光线（暗角）与剪辑（动态模糊 / 黑屏叠化），将碎片素材剪辑为 3 分钟短片，节奏呼应病情三阶段，获评“视觉表现力突出”。</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="entry">
+                    <div class="entry" style="--i:2;">
                         <div class="entry-content">
                             <div class="row">
-                                <div class="left">中国移动创客比赛-颜探网页开发二等奖</div>
-                                <div class="mid">网页开发、UI设计</div>
+                                <div class="left">中国移动创客比赛 · 颜探网页开发二等奖</div>
+                                <div class="mid">网页开发 / UI 设计</div>
                                 <div class="right">2024.10 – 2024.12</div>
                             </div>
+                            <ul class="bullets">
+                                <li><strong>全栈开发能力：</strong>独立完成“颜探”网页的 UI 界面设计与前端开发，基于用户调研确定“高颜值好物推荐”的产品定位。设计并实现首页、详情页、分类页等 <span class="kpi" data-count="5" data-suffix="个">5</span> 个核心页面，用户测试满意度达 <span class="kpi" data-count="90" data-suffix="%">90%</span>。</li>
+                                <li><strong>数据驱动设计：</strong>通过 A/B 测试对比 3 套配色方案与 2 种交互布局，确定最优方案，使页面停留时长提升 <span class="kpi" data-count="35" data-suffix="%">35%</span>。将用户反馈转化为 <span class="kpi" data-count="12" data-suffix="项">12</span> 项界面优化点逐一落地，最终获得中国移动创客比赛二等奖。</li>
+                            </ul>
                         </div>
                     </div>
 
-                    <div class="entry" style="margin-bottom:0;">
+                    <div class="entry" style="margin-bottom:0; --i:3;">
                         <div class="entry-content">
                             <div class="row">
                                 <div class="left">新媒体视域下少数民族非遗文化的创新传播与立法传承——以回族民谣文化为例</div>
                                 <div class="mid">队长</div>
                                 <div class="right">2023.10 – 2024.05</div>
+                            </div>
+                            <ul class="bullets">
+                                <li><strong>课题统筹：</strong>统筹 <span class="kpi" data-count="4" data-suffix="人">4</span> 人团队，设计“新媒体传播 + 立法保护”双维研究框架，制定分阶段计划，组织线上调研 2 次，梳理文献及案例 10 余份，确保项目按期交付。</li>
+                                <li><strong>内容创作与传播：</strong>围绕回族“花儿”民谣创作新媒体内容 <span class="kpi" data-count="15" data-suffix="篇">15</span> 篇，覆盖微信公众号、抖音、B 站，累计播放量 <span class="kpi" data-count="10" data-suffix="万+">10万+</span>，其中 2 篇被校级媒体转载。</li>
+                                <li><strong>学术成果输出：</strong>组织撰写 1.5 万字结题报告，从传播学与法学双重视角提出 3 项传播策略及 2 条立法建议，获指导教师推荐并作为课程典型案例留存。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 校园实践 -->
+            <section class="card" id="campus">
+                <div class="card-inner">
+                    <div class="sectionTitle">
+                        <h2>校园实践</h2>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="entry" style="--i:1;">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="left">校园十佳歌手</div>
+                                <div class="mid">参赛选手 · 获奖</div>
+                                <div class="right">高中阶段</div>
+                            </div>
+                            <ul class="bullets">
+                                <li>通过舞台展示与歌曲演绎，锻炼公开场合的表达能力与心理素质；将音乐爱好与校园文化相结合，用艺术形式传递青春态度，增强自我表达与情绪感染力。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="entry" style="margin-bottom:0; --i:2;">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="left">次元文化主题团建组织</div>
+                                <div class="mid">策划 &amp; 组织</div>
+                                <div class="right">面向 50+ 人</div>
+                            </div>
+                            <ul class="bullets">
+                                <li>负责活动方案设计、场地协调、流程把控及现场氛围调动；通过合理分组、互动环节设置与应急调整，保障活动有序推进，提升跨圈层人群的沟通协调能力与组织执行力。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技能 · 荣誉 · 兴趣 -->
+            <section class="card" id="skill">
+                <div class="card-inner">
+                    <div class="sectionTitle">
+                        <h2>技能 · 荣誉 · 兴趣</h2>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="entry" style="--i:1;">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="left">技能证书</div>
+                            </div>
+                            <div class="subline" style="margin-top:8px;">
+                                大学英语 CET-4（528）· CET-6 · 普通话等级证书（二甲）· 国家人才英语（中级）
+                            </div>
+                            <div class="chips" aria-label="工具技能">
+                                <span class="chip">Premiere</span>
+                                <span class="chip">Photoshop</span>
+                                <span class="chip">Word</span>
+                                <span class="chip">Excel</span>
+                                <span class="chip">PPT</span>
+                                <span class="chip">AI 辅助创作</span>
+                                <span class="chip">数据分析</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="entry" style="--i:2;">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="left">比赛荣誉</div>
+                            </div>
+                            <ul class="bullets">
+                                <li>2020 年全国青少年电子制作公开赛（嘉兴站）太空探测器个人赛 · <strong>国家级二等奖</strong></li>
+                                <li>2024 年 NCDA 未来设计师大赛 · <strong>省级（北京市）三等奖</strong></li>
+                                <li>2024 年中国移动创客比赛 · <strong>国家级二等奖</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="entry" style="margin-bottom:0; --i:3;">
+                        <div class="entry-content">
+                            <div class="row">
+                                <div class="left">兴趣爱好</div>
+                            </div>
+                            <div class="chips" aria-label="兴趣爱好">
+                                <span class="chip">📷 摄影（人物写真 / 自然风光，500+ 张）</span>
+                                <span class="chip">✈️ 旅游（打卡 20+ 城市）</span>
+                                <span class="chip">🎤 音乐（十佳歌手）</span>
+                                <span class="chip">✍️ 写作（随笔散文 20+ 篇）</span>
                             </div>
                         </div>
                     </div>
@@ -1607,46 +1707,42 @@
                 progressBar.style.width = progress + '%';
             }, { passive: true });
 
+            // ===== 数字滚动 =====
+            function animateKpi(el) {
+                if (el.dataset.animated) return;
+                el.dataset.animated = 'true';
+                const target = parseInt(el.dataset.count, 10);
+                if (isNaN(target)) return;
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = 1100;
+                const startTime = performance.now();
+
+                function frame(now) {
+                    const p = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    const val = Math.round(target * eased);
+                    el.textContent = prefix + val.toLocaleString('en-US') + suffix;
+                    if (p < 1) {
+                        requestAnimationFrame(frame);
+                    } else {
+                        el.textContent = prefix + target.toLocaleString('en-US') + suffix;
+                    }
+                }
+                requestAnimationFrame(frame);
+            }
+
             // ===== 卡片入场观察 =====
             const cards = document.querySelectorAll('.card');
             const revealIO = new IntersectionObserver(function(entries) {
                 entries.forEach(function(e) {
                     if (e.isIntersecting) {
                         e.target.classList.add('reveal');
-                        // 触发数字滚动
-                        const kpis = e.target.querySelectorAll('.kpi[data-count]');
-                        kpis.forEach(function(el) {
-                            const target = parseInt(el.dataset.count, 10);
-                            if (!isNaN(target) && !el.dataset.animated) {
-                                el.dataset.animated = 'true';
-                                let current = 0;
-                                const step = Math.ceil(target / 60);
-                                const timer = setInterval(function() {
-                                    current += step;
-                                    if (current >= target) {
-                                        current = target;
-                                        clearInterval(timer);
-                                    }
-                                    el.textContent = current + (el.textContent.includes('+') ? '+' :
-                                    '');
-                                    if (el.textContent.includes('%')) {
-                                        el.textContent = current + '%';
-                                    } else if (el.textContent.includes('≥')) {
-                                        el.textContent = '≥' + current + '%';
-                                    } else if (el.textContent.includes('≤')) {
-                                        el.textContent = '≤' + current + '%';
-                                    } else if (el.textContent.includes('+')) {
-                                        el.textContent = current + '+';
-                                    } else {
-                                        el.textContent = current;
-                                    }
-                                }, 20);
-                            }
-                        });
+                        e.target.querySelectorAll('.kpi[data-count]').forEach(animateKpi);
                         revealIO.unobserve(e.target);
                     }
                 });
-            }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
             cards.forEach(function(c) { revealIO.observe(c); });
 
             // ===== Dock 滚动监听 =====
@@ -1751,6 +1847,7 @@
             // ===== 初始显示第一个卡片 =====
             if (cards.length > 0 && cards[0].getBoundingClientRect().top < window.innerHeight) {
                 cards[0].classList.add('reveal');
+                cards[0].querySelectorAll('.kpi[data-count]').forEach(animateKpi);
                 revealIO.unobserve(cards[0]);
             }
 
