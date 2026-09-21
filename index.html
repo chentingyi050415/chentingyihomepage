@@ -1,1878 +1,1461 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark light" />
-    <title>陈亭伊｜运营 / 策划 / 增长</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>陈亭伊 Chen Tingyi | 运营 · 策划 · 增长</title>
+<meta name="description" content="陈亭伊的个人求职主页 —— 中央民族大学网络与新媒体专业，专注新媒体运营、内容策划与数据增长。" />
 
-    <style>
-        /* ===== 原有基础样式保留并优化 ===== */
-        :root {
-            --bg: #06070b;
-            --text: rgba(255, 255, 255, 0.93);
-            --muted: rgba(255, 255, 255, 0.64);
-            --faint: rgba(255, 255, 255, 0.42);
-            --surface-glass: rgba(255, 255, 255, 0.045);
-            --surface-strong: rgba(255, 255, 255, 0.075);
-            --surface-soft: rgba(255, 255, 255, 0.032);
-            --line: rgba(255, 255, 255, 0.09);
-            --line-strong: rgba(255, 255, 255, 0.16);
-            --line-glow: rgba(255, 255, 255, 0.22);
-            --accent: #0a84ff;
-            --accent2: #5ec8f2;
-            --accent3: #38bdf8;
-            --good: #34d399;
-            --shadow-deep: 0 24px 80px rgba(0, 0, 0, 0.65);
-            --shadow-md: 0 12px 36px rgba(0, 0, 0, 0.45);
-            --shadow-sm: 0 6px 20px rgba(0, 0, 0, 0.30);
-            --shadow-glow: 0 0 60px rgba(10, 132, 255, 0.08);
-            --radius-xl: 26px;
-            --radius-lg: 20px;
-            --radius: 16px;
-            --radius-sm: 12px;
-            --max: 960px;
-            --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-                "PingFang SC", "Helvetica Neue", "Noto Sans SC", Arial, sans-serif;
-            --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
-            --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
-            --ease-smooth: cubic-bezier(.4, 0, .2, 1);
-        }
+<!-- ============ Tailwind CSS (CDN) ============ -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-        @media (prefers-color-scheme: light) {
-            :root {
-                --bg: #eceef3;
-                --text: #1a1c26;
-                --muted: #555b6e;
-                --faint: #7d8296;
-                --surface-glass: rgba(255, 255, 255, 0.55);
-                --surface-strong: rgba(255, 255, 255, 0.82);
-                --surface-soft: rgba(255, 255, 255, 0.48);
-                --line: rgba(0, 0, 0, 0.07);
-                --line-strong: rgba(0, 0, 0, 0.13);
-                --line-glow: rgba(0, 0, 0, 0.16);
-                --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.10);
-                --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-                --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.05);
-                --shadow-glow: 0 0 50px rgba(0, 122, 255, 0.05);
-                --accent: #007aff;
-                --accent2: #32ade6;
-                --accent3: #0ea5e9;
-                --good: #30b158;
-            }
-        }
+<!-- ============ Inter 字体 ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: var(--font);
+<!-- ============ Tailwind 主题扩展：商务深蓝配色 ============ -->
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            50:  '#F4F7FA',
+            100: '#E6EDF4',
+            200: '#C9DAE8',
+            300: '#A0BDD4',
+            400: '#6F97B8',
+            500: '#4A769C',
+            600: '#355D80',
+            700: '#284865',
+            800: '#1C344C',
+            900: '#132538',
+            950: '#0B1826'
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'PingFang SC', 'Microsoft YaHei', 'sans-serif']
         }
-        html,
-        body {
-            height: 100%;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            cursor: default;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        :focus-visible {
-            outline: 2px solid rgba(10, 132, 255, 0.55);
-            outline-offset: 4px;
-            border-radius: 12px;
-        }
+      }
+    }
+  };
+</script>
 
-        /* ========== 增强背景系统（更多动态） ========== */
-        .bg-layer {
-            position: fixed;
-            inset: 0;
-            z-index: -10;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .bg-gradient {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse 900px 500px at 15% 8%, rgba(10, 132, 255, 0.07), transparent 55%),
-                radial-gradient(ellipse 700px 400px at 78% 12%, rgba(94, 200, 242, 0.05), transparent 55%),
-                radial-gradient(ellipse 650px 450px at 50% 85%, rgba(52, 211, 153, 0.04), transparent 55%),
-                radial-gradient(ellipse 500px 300px at 35% 45%, rgba(255, 255, 255, 0.015), transparent 60%);
-            animation: gradientShift 20s ease-in-out infinite alternate;
-        }
-        @keyframes gradientShift {
-            0% {
-                opacity: 0.6;
-                transform: scale(1) rotate(0deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.2) rotate(2deg);
-            }
-        }
-        .bg-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.5;
-            mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 25%, transparent 65%);
-            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 25%, transparent 65%);
-            animation: gridPulse 30s linear infinite;
-        }
-        @keyframes gridPulse {
-            0% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 0.8;
-            }
-            100% {
-                opacity: 0.5;
-            }
-        }
-        .bg-noise {
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
-            opacity: .22;
-            mix-blend-mode: overlay;
-            animation: noiseFlicker 0.5s steps(1) infinite;
-        }
-        @keyframes noiseFlicker {
-            0%,
-            100% {
-                opacity: 0.22;
-            }
-            50% {
-                opacity: 0.18;
-            }
-        }
-        @media (prefers-color-scheme: light) {
-            .bg-noise {
-                opacity: .12;
-            }
-        }
+<style>
+  /* ==================================================================
+     基础重置与全局字体
+     ================================================================== */
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-        /* 更多浮动光斑 */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(90px);
-            will-change: transform, opacity;
-            animation: orbFloat 22s var(--ease-smooth) infinite alternate;
-        }
-        .orb-1 {
-            width: 520px;
-            height: 520px;
-            left: -180px;
-            top: -240px;
-            background: radial-gradient(circle at 35% 35%, rgba(10, 132, 255, 0.35), transparent 60%);
-            opacity: 0.55;
-            animation-duration: 20s;
-        }
-        .orb-2 {
-            width: 440px;
-            height: 440px;
-            right: -190px;
-            bottom: -200px;
-            background: radial-gradient(circle at 30% 30%, rgba(94, 200, 242, 0.28), transparent 60%);
-            opacity: 0.45;
-            animation-duration: 26s;
-            animation-delay: -3s;
-        }
-        .orb-3 {
-            width: 340px;
-            height: 340px;
-            left: 40%;
-            bottom: -280px;
-            background: radial-gradient(circle at 30% 30%, rgba(52, 211, 153, 0.20), transparent 60%);
-            opacity: 0.35;
-            animation-duration: 30s;
-            animation-delay: -6s;
-        }
-        .orb-4 {
-            width: 280px;
-            height: 280px;
-            right: 10%;
-            top: 20%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent 60%);
-            opacity: 0.25;
-            animation-duration: 18s;
-            animation-delay: -10s;
-        }
-        @keyframes orbFloat {
-            0% {
-                transform: translate3d(0, 0, 0) scale(1);
-            }
-            100% {
-                transform: translate3d(18px, -22px, 0) scale(1.07);
-            }
-        }
+  html { scroll-behavior: smooth; }
 
-        /* 粒子升级 */
-        .particles {
-            position: absolute;
-            inset: 0;
-        }
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            animation: particleDrift 14s var(--ease-smooth) infinite;
-            opacity: 0;
-            box-shadow: 0 0 6px rgba(10, 132, 255, 0.3);
-        }
-        .particle:nth-child(1) {
-            left: 12%;
-            top: 25%;
-            animation-delay: 0s;
-            animation-duration: 13s;
-        }
-        .particle:nth-child(2) {
-            left: 28%;
-            top: 60%;
-            animation-delay: -2s;
-            animation-duration: 15s;
-            width: 2px;
-            height: 2px;
-        }
-        .particle:nth-child(3) {
-            left: 55%;
-            top: 18%;
-            animation-delay: -4s;
-            animation-duration: 16s;
-            width: 4px;
-            height: 4px;
-            background: rgba(94, 200, 242, 0.7);
-        }
-        .particle:nth-child(4) {
-            left: 72%;
-            top: 70%;
-            animation-delay: -1s;
-            animation-duration: 12s;
-        }
-        .particle:nth-child(5) {
-            left: 85%;
-            top: 35%;
-            animation-delay: -5s;
-            animation-duration: 17s;
-            width: 2px;
-            height: 2px;
-            background: rgba(52, 211, 153, 0.7);
-        }
-        .particle:nth-child(6) {
-            left: 40%;
-            top: 78%;
-            animation-delay: -7s;
-            animation-duration: 14s;
-            width: 3px;
-            height: 3px;
-        }
-        .particle:nth-child(7) {
-            left: 8%;
-            top: 50%;
-            animation-delay: -3s;
-            animation-duration: 18s;
-            width: 1.5px;
-            height: 1.5px;
-        }
-        .particle:nth-child(8) {
-            left: 65%;
-            top: 8%;
-            animation-delay: -6s;
-            animation-duration: 11s;
-            background: rgba(10, 132, 255, 0.7);
-        }
-        .particle:nth-child(9) {
-            left: 90%;
-            top: 80%;
-            animation-delay: -8s;
-            animation-duration: 19s;
-            width: 2.5px;
-            height: 2.5px;
-            background: rgba(255, 215, 0, 0.5);
-        }
-        .particle:nth-child(10) {
-            left: 48%;
-            top: 8%;
-            animation-delay: -2.5s;
-            animation-duration: 14.5s;
-            width: 3.5px;
-            height: 3.5px;
-            background: rgba(255, 255, 255, 0.8);
-        }
-        @keyframes particleDrift {
-            0% {
-                transform: translateY(0) translateX(0) scale(1);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.9;
-            }
-            50% {
-                opacity: 0.4;
-                transform: translateY(-70px) translateX(30px) scale(1.8);
-            }
-            85% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-130px) translateX(-20px) scale(0.5);
-                opacity: 0;
-            }
-        }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background-color: #FFFFFF;
+    color: #132538;
+    overflow-x: hidden;
+  }
 
-        /* 光标光晕增强 */
-        .cursor-glow {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            width: 480px;
-            height: 480px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(10, 132, 255, 0.08) 0%, rgba(94, 200, 242, 0.04) 30%, transparent 65%);
-            transform: translate(-50%, -50%);
-            transition: opacity 0.4s ease;
-            opacity: 0;
-            will-change: left, top, opacity;
-            mix-blend-mode: screen;
-        }
-        @media (max-width: 768px) {
-            .cursor-glow {
-                display: none;
-            }
-        }
-        @media (prefers-color-scheme: light) {
-            .cursor-glow {
-                background: radial-gradient(circle, rgba(0, 122, 255, 0.10) 0%, rgba(50, 173, 230, 0.05) 30%, transparent 65%);
-            }
-        }
+  /* 锚点定位时为固定导航栏预留空间 */
+  section[id] { scroll-margin-top: 96px; }
 
-        /* ========== 布局 ========== */
-        .wrap {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: calc(20px + env(safe-area-inset-top)) 18px 72px;
-            position: relative;
-            z-index: 1;
-        }
+  /* 数字等宽，避免滚动计数时宽度抖动 */
+  .stat-num { font-variant-numeric: tabular-nums; }
 
-        /* 滚动进度条 */
-        #progressBar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            z-index: 100;
-            background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-            width: 0%;
-            transition: width 0.2s ease;
-            box-shadow: 0 0 12px rgba(10, 132, 255, 0.5);
-        }
+  /* ==================================================================
+     1. 光标跟随光晕 —— 极淡的蓝色柔光，不干扰阅读
+     ================================================================== */
+  #cursor-glow {
+    position: fixed;
+    top: 0; left: 0;
+    width: 460px; height: 460px;
+    margin-left: -230px;
+    margin-top: -230px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity .6s ease;
+    background: radial-gradient(circle,
+                rgba(74, 118, 156, 0.10) 0%,
+                rgba(74, 118, 156, 0.045) 38%,
+                rgba(74, 118, 156, 0) 70%);
+    will-change: transform;
+  }
 
-        /* ========== HERO ========== */
-        .hero {
-            position: relative;
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--line);
-            background: linear-gradient(165deg,
-                    rgba(255, 255, 255, 0.07) 0%,
-                    rgba(255, 255, 255, 0.035) 40%,
-                    rgba(255, 255, 255, 0.02) 100%);
-            box-shadow: var(--shadow-deep), var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-            padding: 26px 28px;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            overflow: hidden;
-            animation: heroEnter 900ms var(--ease-out-expo) both;
-            transition: box-shadow 0.5s ease, border-color 0.5s ease;
-            will-change: transform;
-        }
-        .hero:hover {
-            border-color: var(--line-glow);
-            box-shadow: var(--shadow-deep), 0 0 90px rgba(10, 132, 255, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        }
-        @keyframes heroEnter {
-            0% {
-                transform: translateY(22px) scale(0.975);
-                opacity: 0;
-                filter: blur(4px);
-            }
-            100% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-                filter: blur(0);
-            }
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            background: radial-gradient(700px 220px at 18% 2%, rgba(10, 132, 255, 0.12), transparent 50%),
-                radial-gradient(600px 200px at 80% 5%, rgba(94, 200, 242, 0.08), transparent 50%),
-                radial-gradient(500px 180px at 50% 95%, rgba(52, 211, 153, 0.05), transparent 50%);
-            opacity: 0.55;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: -40%;
-            left: -20%;
-            width: 70%;
-            height: 140%;
-            background: linear-gradient(105deg,
-                    transparent 30%,
-                    rgba(255, 255, 255, 0.025) 48%,
-                    rgba(255, 255, 255, 0.06) 50%,
-                    rgba(255, 255, 255, 0.025) 52%,
-                    transparent 70%);
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 0;
-            animation: glassSweep 8s var(--ease-smooth) infinite;
-        }
-        @keyframes glassSweep {
-            0%,
-            100% {
-                transform: translateX(-8%) skewX(-6deg);
-            }
-            50% {
-                transform: translateX(8%) skewX(-6deg);
-            }
-        }
+  /* ==================================================================
+     2. 滚动显现动画（顺序入场，非一次性加载）
+     ================================================================== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 900ms cubic-bezier(.16, 1, .3, 1),
+                transform 900ms cubic-bezier(.16, 1, .3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-        .heroGrid {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
-            gap: 22px;
-            align-items: start;
-        }
-        @media (max-width: 860px) {
-            .heroGrid {
-                grid-template-columns: 1fr;
-            }
-        }
+  /* ==================================================================
+     3. 动态导航栏 —— 滚动后浮动 + 阴影 + 渐变背景
+     ================================================================== */
+  #navbar-inner {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    transition: height 520ms cubic-bezier(.16, 1, .3, 1),
+                margin 520ms cubic-bezier(.16, 1, .3, 1),
+                padding 520ms cubic-bezier(.16, 1, .3, 1),
+                background 520ms cubic-bezier(.16, 1, .3, 1),
+                border-color 520ms cubic-bezier(.16, 1, .3, 1),
+                box-shadow 520ms cubic-bezier(.16, 1, .3, 1);
+  }
 
-        .identity {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            min-width: 0;
-        }
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
-            font-weight: 750;
-            letter-spacing: 0.4px;
-            color: rgba(255, 255, 255, 0.9);
-            background: linear-gradient(140deg,
-                    rgba(10, 132, 255, 0.28) 0%,
-                    rgba(94, 200, 242, 0.12) 60%,
-                    rgba(255, 255, 255, 0.04) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 20px rgba(10, 132, 255, 0.08);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            user-select: none;
-            transition: all 0.4s var(--ease-spring);
-            will-change: transform;
-            position: relative;
-            z-index: 2;
-        }
-        .avatar:hover {
-            transform: scale(1.06) translateY(-3px) rotate(-2deg);
-            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 34px rgba(10, 132, 255, 0.14);
-        }
-        @media (prefers-color-scheme: light) {
-            .avatar {
-                color: #1a1c26;
-                background: linear-gradient(140deg, rgba(0, 122, 255, 0.18), rgba(50, 173, 230, 0.06), rgba(255, 255, 255, 0.55));
-                border-color: rgba(0, 0, 0, 0.12);
-                box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            }
-            .avatar:hover {
-                box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-            }
-        }
+  body.is-scrolled #navbar-inner {
+    height: 3.6rem;
+    margin-top: .75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(255,255,255,.95) 0%, rgba(244,247,250,.90) 100%);
+    border-color: rgba(201, 218, 232, .85);
+    box-shadow: 0 12px 32px -16px rgba(19, 37, 56, .28),
+                0 2px 8px -4px rgba(19, 37, 56, .08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
 
-        .idText {
-            min-width: 0;
-        }
-        .nameRow {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 14px;
-            align-items: baseline;
-        }
-        .name {
-            font-size: clamp(31px, 3.4vw, 42px);
-            font-weight: 830;
-            letter-spacing: 0.2px;
-            background: linear-gradient(95deg,
-                    rgba(255, 255, 255, 0.95) 0%,
-                    rgba(255, 255, 255, 0.78) 50%,
-                    rgba(200, 220, 255, 0.85) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.15;
-            animation: titleShimmer 6s ease-in-out infinite alternate;
-        }
-        @keyframes titleShimmer {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
-        @media (prefers-color-scheme: light) {
-            .name {
-                background: linear-gradient(95deg, #1a1c26 0%, #3a3f50 50%, #1a3a5c 100%);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-            }
-        }
+  /* 导航链接下划线动效 */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -5px;
+    height: 1.5px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #284865, #4A769C);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .45s cubic-bezier(.16, 1, .3, 1);
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after { transform: scaleX(1); }
+  .nav-link.active { color: #0B1826; }
 
-        .roleTag {
-            font-size: 13px;
-            color: var(--muted);
-            padding: 6px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            white-space: nowrap;
-            font-weight: 520;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-            animation: tagPulse 3s ease-in-out infinite;
-        }
-        @keyframes tagPulse {
-            0%,
-            100% {
-                border-color: rgba(255, 255, 255, 0.14);
-            }
-            50% {
-                border-color: rgba(10, 132, 255, 0.4);
-            }
-        }
-        .roleTag:hover {
-            border-color: rgba(255, 255, 255, 0.28);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        .meta {
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 13.5px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px 10px;
-            align-items: center;
-        }
-        .meta .sep {
-            opacity: 0.35;
-            user-select: none;
-            font-weight: 300;
-        }
-        .meta a {
-            position: relative;
-            transition: color 0.25s ease;
-        }
-        .meta a:hover {
-            color: var(--text);
-        }
-        .meta a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -3px;
-            height: 1.5px;
-            background: linear-gradient(90deg, transparent, rgba(10, 132, 255, 0.5), rgba(94, 200, 242, 0.4), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s var(--ease-out-expo);
-            opacity: 0.8;
-        }
-        .meta a:hover::after {
-            transform: scaleX(1);
-        }
-        .meta2 {
-            margin-top: 7px;
-            color: var(--muted);
-            font-size: 13.4px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 8px;
-        }
-        .meta2 strong {
-            color: var(--text);
-            font-weight: 720;
-        }
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .chip {
-            font-size: 12.6px;
-            padding: 7px 15px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.11);
-            background: linear-gradient(180deg,
-                    rgba(255, 255, 255, 0.05) 0%,
-                    rgba(255, 255, 255, 0.015) 100%);
-            transition: all 0.35s var(--ease-spring);
-            user-select: none;
-            will-change: transform;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            cursor: default;
-        }
-        .chip:hover {
-            transform: translateY(-3px) scale(1.03);
-            border-color: rgba(255, 255, 255, 0.26);
-            background: linear-gradient(180deg,
-                    rgba(255, 255, 255, 0.10) 0%,
-                    rgba(255, 255, 255, 0.03) 100%);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18), 0 0 18px rgba(10, 132, 255, 0.06);
-        }
+  /* ==================================================================
+     4. 卡片悬停 —— 轻微上浮 + 柔和阴影放大
+     ================================================================== */
+  .card {
+    transition: transform .5s cubic-bezier(.16, 1, .3, 1),
+                box-shadow .5s cubic-bezier(.16, 1, .3, 1),
+                border-color .5s ease;
+    will-change: transform;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(160, 189, 212, .85);
+    box-shadow: 0 26px 52px -26px rgba(19, 37, 56, .26),
+                0 6px 16px -8px rgba(19, 37, 56, .08);
+  }
 
-        /* Action tiles */
-        .actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            align-content: start;
-        }
-        @media (max-width: 520px) {
-            .actions {
-                grid-template-columns: 1fr;
-            }
-        }
-        .tile {
-            position: relative;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.035);
-            box-shadow: var(--shadow-sm);
-            padding: 13px 15px;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            transition: all 0.4s var(--ease-spring);
-            overflow: hidden;
-            will-change: transform;
-        }
-        .tile:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.18);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22), 0 0 20px rgba(10, 132, 255, 0.04);
-        }
-        .tile::before {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            background: radial-gradient(350px 100px at 10% 0%, rgba(10, 132, 255, 0.08), transparent 55%),
-                radial-gradient(350px 100px at 90% 0%, rgba(94, 200, 242, 0.06), transparent 55%);
-            opacity: 0.35;
-            pointer-events: none;
-        }
-        .tileHead {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .tileTitle {
-            font-size: 12.8px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            display: flex;
-            gap: 7px;
-            align-items: center;
-        }
-        .tileIcon {
-            width: 26px;
-            height: 26px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            background: rgba(255, 255, 255, 0.03);
-            font-size: 13px;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-        }
-        .tileValue {
-            position: relative;
-            z-index: 1;
-            margin-top: 7px;
-            font-size: 12.8px;
-            color: var(--muted);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .tileBtns {
-            position: relative;
-            z-index: 1;
-            margin-top: 11px;
-            display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            appearance: none;
-            border: 1px solid rgba(255, 255, 255, 0.10);
-            background: rgba(255, 255, 255, 0.02);
-            color: var(--muted);
-            padding: 6px 13px;
-            border-radius: 999px;
-            font-size: 11.8px;
-            cursor: pointer;
-            transition: all 0.3s var(--ease-spring);
-            user-select: none;
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.2), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .btn:hover::after {
-            opacity: 1;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            color: var(--text);
-            border-color: rgba(10, 132, 255, 0.4);
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
-        }
+  /* ==================================================================
+     5. 技能 / 证书标签 —— 悬停渐变文字过渡
+     ================================================================== */
+  .tag {
+    transition: transform .35s cubic-bezier(.16, 1, .3, 1),
+                border-color .35s ease,
+                box-shadow .35s ease;
+  }
+  .tag .tag-text { transition: color .35s ease; }
+  .tag:hover {
+    transform: translateY(-2px);
+    border-color: rgba(74, 118, 156, .55);
+    box-shadow: 0 8px 18px -10px rgba(19, 37, 56, .30);
+  }
+  .tag:hover .tag-text {
+    color: transparent;
+    background-image: linear-gradient(90deg, #0B1826 0%, #355D80 55%, #4A769C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 
-        /* ========== DOCK ========== */
-        .dock {
-            position: sticky;
-            top: calc(14px + env(safe-area-inset-top));
-            z-index: 20;
-            margin: 18px 0 0;
-            display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 7px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-        }
-        .dock:hover {
-            box-shadow: 0 14px 38px rgba(0, 0, 0, 0.28);
-            border-color: rgba(255, 255, 255, 0.13);
-        }
-        .dock a {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 14px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            font-size: 13px;
-            color: var(--muted);
-            transition: all 0.35s var(--ease-spring);
-            user-select: none;
-            will-change: transform;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            cursor: pointer;
-            position: relative;
-        }
-        .dock a::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 999px;
-            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.1), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-        .dock a:hover::before {
-            opacity: 1;
-        }
-        .dock a:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.07);
-            color: var(--text);
-            border-color: rgba(255, 255, 255, 0.10);
-        }
-        .dock a.active {
-            color: var(--text);
-            border-color: rgba(10, 132, 255, 0.35);
-            background: linear-gradient(180deg,
-                    rgba(10, 132, 255, 0.14) 0%,
-                    rgba(255, 255, 255, 0.04) 100%);
-            box-shadow: 0 4px 14px rgba(10, 132, 255, 0.12);
-        }
-        section {
-            scroll-margin-top: 100px;
-        }
+  /* ==================================================================
+     6. 段落分隔线 —— 低调动效的流动光带
+     ================================================================== */
+  .divider {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(201, 218, 232, .9) 16%,
+                rgba(201, 218, 232, .9) 84%,
+                transparent 100%);
+  }
+  .divider::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 22%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 118, 156, .85), transparent);
+    animation: dividerFlow 6s cubic-bezier(.45, 0, .55, 1) infinite;
+  }
+  @keyframes dividerFlow {
+    0%   { transform: translateX(-130%); }
+    100% { transform: translateX(560%); }
+  }
 
-        /* ========== 卡片 ========== */
-        .sections {
-            margin-top: 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .card {
-            border: 1px solid var(--line);
-            background: linear-gradient(170deg,
-                    rgba(255, 255, 255, 0.055) 0%,
-                    rgba(255, 255, 255, 0.025) 45%,
-                    rgba(255, 255, 255, 0.01) 100%);
-            border-radius: var(--radius-lg);
-            padding: 22px 24px;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            transform: translateY(28px);
-            opacity: 0;
-            transition: box-shadow 0.5s ease, border-color 0.5s ease, transform 0.5s var(--ease-out-expo),
-                opacity 0.5s var(--ease-out-expo);
-            will-change: transform, opacity;
-            position: relative;
-            overflow: hidden;
-        }
-        .card::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            background: radial-gradient(600px 160px at 15% 0%, rgba(10, 132, 255, 0.04), transparent 55%),
-                radial-gradient(500px 140px at 85% 100%, rgba(94, 200, 242, 0.03), transparent 55%);
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .card:hover {
-            border-color: var(--line-glow);
-            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32), 0 0 40px rgba(10, 132, 255, 0.04);
-        }
-        .card.reveal {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .card .card-inner {
-            position: relative;
-            z-index: 1;
-        }
+  /* ==================================================================
+     7. 技能进度条
+     ================================================================== */
+  .skill-track {
+    height: 6px;
+    border-radius: 999px;
+    background: #E6EDF4;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #284865 0%, #4A769C 62%, #6F97B8 100%);
+    transition: width 1500ms cubic-bezier(.16, 1, .3, 1);
+  }
 
-        .sectionTitle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        .sectionTitle h2 {
-            font-size: 16px;
-            font-weight: 800;
-            letter-spacing: 0.4px;
-            color: var(--text);
-            white-space: nowrap;
-            position: relative;
-        }
-        .sectionTitle h2::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            transition: width 0.6s ease;
-        }
-        .card.reveal .sectionTitle h2::after {
-            width: 100%;
-        }
-        .sectionTitle .line {
-            height: 1px;
-            flex: 1;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 85%);
-            border-radius: 2px;
-        }
+  /* ==================================================================
+     8. 回到顶部按钮（固定右上角）
+     ================================================================== */
+  #backTop {
+    position: fixed;
+    top: 6.5rem;
+    right: 1.5rem;
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(.94);
+    transition: opacity .45s ease,
+                transform .45s cubic-bezier(.16, 1, .3, 1),
+                visibility .45s;
+  }
+  #backTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  @media (max-width: 640px) {
+    #backTop { top: auto; bottom: 1.25rem; right: 1.25rem; }
+  }
 
-        /* Entry */
-        .entry {
-            position: relative;
-            z-index: 1;
-            border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            background: rgba(0, 0, 0, 0.06);
-            padding: 16px 16px;
-            margin-bottom: 11px;
-            transition: all 0.4s var(--ease-spring);
-            overflow: hidden;
-            will-change: transform;
-            transform-style: preserve-3d;
-            perspective: 800px;
-            opacity: 0;
-            transform: translateY(20px) scale(0.98);
-            animation: entryFadeIn 0.6s var(--ease-out-expo) forwards;
-            animation-delay: calc(0.08s * var(--i, 0));
-        }
-        @keyframes entryFadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        @media (prefers-color-scheme: light) {
-            .entry {
-                background: rgba(255, 255, 255, 0.50);
-                border-color: rgba(0, 0, 0, 0.04);
-            }
-        }
-        .entry:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: rgba(255, 255, 255, 0.16);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18), 0 0 22px rgba(10, 132, 255, 0.03);
-        }
-        @media (prefers-color-scheme: light) {
-            .entry:hover {
-                background: rgba(255, 255, 255, 0.72);
-                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
-            }
-        }
-        .entry::before {
-            content: "";
-            position: absolute;
-            top: -30%;
-            left: -40%;
-            width: 70%;
-            height: 160%;
-            background: linear-gradient(105deg,
-                    transparent 40%,
-                    rgba(255, 255, 255, 0.02) 49%,
-                    rgba(255, 255, 255, 0.05) 50%,
-                    rgba(255, 255, 255, 0.02) 51%,
-                    transparent 60%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .entry:hover::before {
-            opacity: 1;
-            animation: entrySweep 1.6s var(--ease-smooth) forwards;
-        }
-        @keyframes entrySweep {
-            0% {
-                transform: translateX(-15%) skewX(-7deg);
-            }
-            100% {
-                transform: translateX(20%) skewX(-7deg);
-            }
-        }
-        .entry .entry-content {
-            position: relative;
-            z-index: 1;
-        }
+  /* ==================================================================
+     9. 首屏背景网格
+     ================================================================== */
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(19, 37, 56, .038) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(19, 37, 56, .038) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 72% 62% at 50% 38%, #000 18%, transparent 74%);
+    mask-image: radial-gradient(ellipse 72% 62% at 50% 38%, #000 18%, transparent 74%);
+  }
 
-        .row {
-            display: grid;
-            grid-template-columns: 1.25fr 0.75fr 0.5fr;
-            gap: 10px;
-            align-items: baseline;
-        }
-        .row .left {
-            font-weight: 750;
-            font-size: 14.6px;
-            letter-spacing: 0.2px;
-        }
-        .row .mid {
-            color: var(--muted);
-            font-size: 13.8px;
-            text-align: center;
-            font-weight: 620;
-        }
-        .row .right {
-            color: var(--faint);
-            font-size: 12.8px;
-            text-align: right;
-            white-space: nowrap;
-            font-weight: 500;
-        }
-        @media (max-width: 760px) {
-            .row {
-                grid-template-columns: 1fr;
-            }
-            .row .mid,
-            .row .right {
-                text-align: left;
-            }
-        }
-        .subline {
-            margin-top: 7px;
-            color: var(--muted);
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 0.15px;
-            position: relative;
-            z-index: 1;
-        }
-        .subline strong {
-            color: var(--text);
-            font-weight: 720;
-        }
-        ul.bullets {
-            list-style: none;
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-            font-size: 13.8px;
-            color: var(--text);
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-        ul.bullets li {
-            position: relative;
-            padding-left: 22px;
-            color: rgba(255, 255, 255, 0.87);
-        }
-        @media (prefers-color-scheme: light) {
-            ul.bullets li {
-                color: rgba(26, 28, 38, 0.87);
-            }
-        }
-        ul.bullets li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.6em;
-            width: 8px;
-            height: 8px;
-            border-radius: 2.5px;
-            background: linear-gradient(135deg, rgba(10, 132, 255, 0.85), rgba(94, 200, 242, 0.75));
-            transform: translateY(-50%) rotate(45deg);
-            box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.07);
-            opacity: 0.85;
-            transition: all 0.3s ease;
-        }
-        .entry:hover ul.bullets li::before {
-            box-shadow: 0 0 0 5px rgba(10, 132, 255, 0.12);
-            opacity: 1;
-        }
-        .kpi {
-            font-weight: 800;
-            background: linear-gradient(90deg, rgba(94, 200, 242, 0.95), rgba(10, 132, 255, 0.9));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-            animation: kpiPop 0.6s var(--ease-spring);
-        }
-        @keyframes kpiPop {
-            0% {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        @media (prefers-color-scheme: light) {
-            .kpi {
-                background: linear-gradient(90deg, #0a84ff, #007aff);
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-            }
-        }
+  /* ==================================================================
+     10. 移动端菜单展开
+     ================================================================== */
+  #mobileMenu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .5s cubic-bezier(.16, 1, .3, 1),
+                opacity .35s ease;
+  }
+  #mobileMenu.open {
+    max-height: 460px;
+    opacity: 1;
+  }
 
-        .footer {
-            text-align: center;
-            margin-top: 14px;
-            color: var(--muted);
-            font-size: 12.6px;
-            padding: 8px 0 0;
-            opacity: 0.8;
-            letter-spacing: 0.3px;
-            position: relative;
-            z-index: 1;
-        }
+  /* ==================================================================
+     11. 按钮样式
+     ================================================================== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .875rem 1.75rem;
+    border-radius: .875rem;
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: #fff;
+    background: linear-gradient(135deg, #1C344C 0%, #284865 55%, #355D80 100%);
+    box-shadow: 0 12px 26px -14px rgba(19, 37, 56, .65);
+    transition: transform .4s cubic-bezier(.16, 1, .3, 1),
+                box-shadow .4s cubic-bezier(.16, 1, .3, 1);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px -16px rgba(19, 37, 56, .72);
+  }
 
-        /* Toast */
-        .toast {
-            position: fixed;
-            left: 50%;
-            bottom: 26px;
-            transform: translateX(-50%) scale(0.92);
-            z-index: 60;
-            padding: 10px 22px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-md);
-            color: var(--text);
-            font-size: 13px;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.35s var(--ease-spring);
-            font-weight: 500;
-            letter-spacing: 0.2px;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) scale(1);
-        }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .875rem 1.75rem;
+    border-radius: .875rem;
+    font-size: .875rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: #284865;
+    background: #fff;
+    border: 1px solid #C9DAE8;
+    transition: transform .4s cubic-bezier(.16, 1, .3, 1),
+                border-color .4s ease,
+                box-shadow .4s cubic-bezier(.16, 1, .3, 1);
+  }
+  .btn-ghost:hover {
+    transform: translateY(-2px);
+    border-color: #A0BDD4;
+    box-shadow: 0 14px 28px -18px rgba(19, 37, 56, .38);
+  }
 
-        /* ========== 响应式 & 打印 ========== */
-        @media print {
-            .bg-layer,
-            .dock,
-            .toast,
-            .cursor-glow,
-            .particles,
-            #progressBar {
-                display: none !important;
-            }
-            body {
-                background: #fff !important;
-                color: #111 !important;
-            }
-            .hero,
-            .card,
-            .entry {
-                box-shadow: none !important;
-                background: #fff !important;
-                border: 1px solid #ddd !important;
-                backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
-            }
-            .chip,
-            .tile,
-            .btn {
-                border: 1px solid #ddd !important;
-                background: #fff !important;
-                box-shadow: none !important;
-            }
-            a {
-                text-decoration: none !important;
-            }
-            .kpi {
-                color: #111 !important;
-                background: none !important;
-                -webkit-background-clip: unset !important;
-                background-clip: unset !important;
-            }
-            .name {
-                color: #111 !important;
-                background: none !important;
-                -webkit-background-clip: unset !important;
-                background-clip: unset !important;
-            }
-            .card {
-                opacity: 1 !important;
-                transform: none !important;
-            }
-            .card.reveal {
-                animation: none !important;
-            }
-            .entry {
-                opacity: 1 !important;
-                transform: none !important;
-                animation: none !important;
-            }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-            .orb,
-            .particle,
-            .bg-gradient,
-            .bg-grid,
-            .bg-noise,
-            .name,
-            .roleTag,
-            .hero::after,
-            .entry::before {
-                animation: none !important;
-            }
-            .card {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
-            .card.reveal {
-                animation: none;
-            }
-            .entry {
-                opacity: 1;
-                transform: none;
-                animation: none !important;
-            }
-            .chip,
-            .tile,
-            .dock a,
-            .btn,
-            .entry {
-                transition: none !important;
-            }
-            .avatar:hover {
-                transform: none;
-            }
-            .cursor-glow {
-                display: none !important;
-            }
-            #progressBar {
-                display: none;
-            }
-        }
-    </style>
+  /* ==================================================================
+     12. 无障碍：减少动效偏好
+     ================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .divider::after { animation: none; }
+    .skill-fill { transition: none; }
+    #cursor-glow { display: none !important; }
+    .card:hover { transform: none; }
+  }
+</style>
 </head>
 
-<body>
-    <!-- 进度条 -->
-    <div id="progressBar"></div>
+<body class="bg-white text-navy-900">
 
-    <!-- 背景系统 -->
-    <div class="bg-layer" aria-hidden="true">
-        <div class="bg-gradient"></div>
-        <div class="bg-grid"></div>
-        <div class="bg-noise"></div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="orb orb-4"></div>
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
+<!-- ==================== 光标跟随光晕 ==================== -->
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ==================== 固定导航栏 ==================== -->
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="mx-auto max-w-6xl px-5 sm:px-6">
+    <div id="navbar-inner">
+
+      <!-- Logo / 姓名 -->
+      <a href="#hero" class="flex items-center gap-3 shrink-0 group" aria-label="回到顶部">
+        <span class="w-9 h-9 rounded-[10px] bg-gradient-to-br from-navy-800 to-navy-600
+                     text-white text-[13px] font-bold flex items-center justify-center
+                     tracking-wide shadow-sm transition-transform duration-500
+                     group-hover:scale-[1.04]">陈</span>
+        <span class="hidden sm:flex flex-col leading-none">
+          <span class="text-[15px] font-semibold text-navy-900 tracking-tight">陈亭伊</span>
+          <span class="text-[9.5px] uppercase tracking-[0.2em] text-navy-400 mt-1">Chen Tingyi</span>
+        </span>
+      </a>
+
+      <!-- 桌面端导航 -->
+      <nav class="hidden md:flex items-center gap-7" aria-label="主导航">
+        <a href="#about"      data-section="about"      class="nav-link text-[13.5px] font-medium text-navy-600 hover:text-navy-900 transition-colors duration-300">关于我</a>
+        <a href="#education"  data-section="education"  class="nav-link text-[13.5px] font-medium text-navy-600 hover:text-navy-900 transition-colors duration-300">教育背景</a>
+        <a href="#internship" data-section="internship" class="nav-link text-[13.5px] font-medium text-navy-600 hover:text-navy-900 transition-colors duration-300">实习经历</a>
+        <a href="#projects"   data-section="projects"   class="nav-link text-[13.5px] font-medium text-navy-600 hover:text-navy-900 transition-colors duration-300">项目成果</a>
+        <a href="#skills"     data-section="skills"     class="nav-link text-[13.5px] font-medium text-navy-600 hover:text-navy-900 transition-colors duration-300">专业技能</a>
+      </nav>
+
+      <!-- 右侧 CTA -->
+      <div class="flex items-center gap-2">
+        <a href="#contact"
+           class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-[13px] font-semibold
+                  text-white bg-gradient-to-br from-navy-800 to-navy-600
+                  shadow-[0_10px_22px_-14px_rgba(19,37,56,.7)]
+                  transition-transform duration-400 hover:-translate-y-0.5">
+          联系我
+        </a>
+        <!-- 移动端菜单按钮 -->
+        <button id="menuBtn" type="button" aria-expanded="false" aria-label="打开菜单"
+                class="md:hidden w-10 h-10 rounded-xl border border-navy-100 bg-white
+                       flex items-center justify-center text-navy-700
+                       transition-colors duration-300 hover:border-navy-300">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- 光标光晕 -->
-    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+    <!-- 移动端下拉菜单 -->
+    <div id="mobileMenu" class="md:hidden">
+      <nav class="mt-2 rounded-2xl border border-navy-100 bg-white/95 backdrop-blur-xl
+                  shadow-[0_18px_40px_-24px_rgba(19,37,56,.35)] p-2.5 flex flex-col">
+        <a href="#about"      class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">关于我</a>
+        <a href="#education"  class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">教育背景</a>
+        <a href="#internship" class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">实习经历</a>
+        <a href="#projects"   class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">项目成果</a>
+        <a href="#skills"     class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">专业技能</a>
+        <a href="#contact"    class="px-4 py-3 rounded-xl text-[14px] font-medium text-navy-700 hover:bg-navy-50 transition-colors">联系方式</a>
+      </nav>
+    </div>
+  </div>
+</header>
 
-    <div class="wrap">
-        <!-- HERO -->
-        <section class="hero" id="top">
-            <div class="heroGrid">
-                <div class="identity">
-                    <div class="avatar" aria-hidden="true">陈</div>
-                    <div class="idText">
-                        <div class="nameRow">
-                            <div class="name">陈亭伊</div>
-                            <div class="roleTag">运营 / 策划 / 增长</div>
-                        </div>
-                        <div class="meta">
-                            <a href="tel:18723250436" aria-label="拨打电话">18723250436</a>
-                            <span class="sep">｜</span>
-                            <a href="mailto:cty007376@gmail.com" aria-label="发送邮件">cty007376@gmail.com</a>
-                            <span class="sep">｜</span>
-                            <span>共青团员</span>
-                            <span class="sep">｜</span>
-                            <span>2005.03 · 现居北京</span>
-                            <span class="sep">｜</span>
-                            <a href="https://chentingyi050415.github.io/chentingyi/homepage/" target="_blank" rel="noopener">个人主页</a>
-                        </div>
-                        <div class="meta2">
-                            <strong>实习/项目经验：</strong>近3年 ｜ <strong>求职意向：</strong>运营、策划、增长 ｜ <strong>期望城市：</strong>川渝｜北京
-                        </div>
-                        <div class="chips" aria-label="标签">
-                            <span class="chip">内容运营</span>
-                            <span class="chip">新媒体策划</span>
-                            <span class="chip">增长分析</span>
-                            <span class="chip">产品运营</span>
-                            <span class="chip">川渝｜北京</span>
-                        </div>
-                    </div>
+<!-- ==================== 回到顶部按钮（固定右上角） ==================== -->
+<button id="backTop" type="button" aria-label="回到顶部"
+        class="w-11 h-11 rounded-xl bg-white/90 backdrop-blur-xl border border-navy-100
+               text-navy-600 shadow-[0_14px_30px_-18px_rgba(19,37,56,.5)]
+               flex items-center justify-center
+               transition-colors duration-300 hover:text-navy-900 hover:border-navy-300">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<main>
+
+  <!-- ==================================================================
+       首屏 Hero
+       ================================================================== -->
+  <section id="hero" class="relative min-h-[94vh] flex items-center pt-32 pb-24 overflow-hidden">
+
+    <!-- 视差背景层 1：网格 -->
+    <div class="absolute inset-0 -z-10" data-parallax="0.16" aria-hidden="true">
+      <div class="hero-grid-bg"></div>
+    </div>
+
+    <!-- 视差背景层 2：右上柔光 -->
+    <div class="absolute -top-32 -right-24 w-[460px] h-[460px] rounded-full blur-3xl pointer-events-none"
+         style="background: radial-gradient(circle, rgba(74,118,156,.16), transparent 68%);"
+         data-parallax="0.32" aria-hidden="true"></div>
+
+    <!-- 视差背景层 3：左下柔光 -->
+    <div class="absolute bottom-0 -left-32 w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none"
+         style="background: radial-gradient(circle, rgba(28,52,76,.10), transparent 70%);"
+         data-parallax="-0.20" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto max-w-6xl px-5 sm:px-6 w-full">
+
+      <!-- 状态标签 -->
+      <div class="reveal inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full
+                  border border-navy-200 bg-navy-50/70 text-[12px] font-medium
+                  text-navy-600 tracking-wide">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        求职中 · 运营 / 策划 / 增长
+      </div>
+
+      <!-- 姓名 -->
+      <h1 class="reveal mt-8 text-[46px] leading-[1.08] sm:text-[62px] lg:text-[72px]
+                 font-bold text-navy-950 tracking-tight"
+          style="transition-delay: 90ms;">
+        陈亭伊
+        <span class="block mt-3 text-[15px] sm:text-[19px] font-medium tracking-[0.28em]
+                     text-navy-300 uppercase">
+          Chen Tingyi
+        </span>
+      </h1>
+
+      <!-- 中文简介 -->
+      <p class="reveal mt-8 text-[16.5px] sm:text-[18px] leading-[1.95] text-navy-700
+                font-light max-w-2xl"
+         style="transition-delay: 180ms;">
+        中央民族大学 · 网络与新媒体专业本科。具备国企宣传、新媒体运营与人才调研等多段实习经历，
+        擅长内容策划、全链路新媒体运营、短视频制作、数据分析与 SOP 搭建，
+        习惯于用数据定位问题、用内容解决问题。
+      </p>
+
+      <!-- 英文简介 -->
+      <p class="reveal mt-5 text-[13.5px] sm:text-[14.5px] leading-[1.95] text-navy-400
+                font-light max-w-2xl"
+         style="transition-delay: 250ms;">
+        Bachelor's degree candidate in Network and New Media at Minzu University of China.
+        Experienced in SOE publicity, new-media operations and talent research, with a focus on
+        content strategy, data analysis and growth. Proficient in copywriting, video production,
+        PR / PS and AI tools. CET-4 &amp; CET-6 passed, Mandarin Level 2-A.
+      </p>
+
+      <!-- CTA -->
+      <div class="reveal mt-11 flex flex-wrap gap-4" style="transition-delay: 320ms;">
+        <a href="#contact" class="btn-primary">
+          联系我
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+        <a href="#internship" class="btn-ghost">查看实习经历</a>
+      </div>
+
+      <!-- 关键数据 -->
+      <div class="reveal mt-20 grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-9 max-w-3xl"
+           style="transition-delay: 400ms;">
+        <div class="border-l border-navy-100 pl-4">
+          <div class="stat-num text-[30px] sm:text-[34px] font-bold text-navy-900 leading-none">
+            <span data-count="4">0</span>
+          </div>
+          <div class="mt-2 text-[12.5px] text-navy-400 tracking-wide">段实习经历</div>
+        </div>
+        <div class="border-l border-navy-100 pl-4">
+          <div class="stat-num text-[30px] sm:text-[34px] font-bold text-navy-900 leading-none">
+            <span data-count="30" data-suffix="+">0</span>
+          </div>
+          <div class="mt-2 text-[12.5px] text-navy-400 tracking-wide">篇宣传稿件发布</div>
+        </div>
+        <div class="border-l border-navy-100 pl-4">
+          <div class="stat-num text-[30px] sm:text-[34px] font-bold text-navy-900 leading-none">
+            <span data-count="6">0</span>
+          </div>
+          <div class="mt-2 text-[12.5px] text-navy-400 tracking-wide">场高校推介会</div>
+        </div>
+        <div class="border-l border-navy-100 pl-4">
+          <div class="stat-num text-[30px] sm:text-[34px] font-bold text-navy-900 leading-none">
+            <span data-count="100" data-suffix="+">0</span>
+          </div>
+          <div class="mt-2 text-[12.5px] text-navy-400 tracking-wide">场商务对接会议</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       关于我
+       ================================================================== -->
+  <section id="about" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">About</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">关于我</h2>
+      </div>
+
+      <div class="divider mt-8 mb-14"></div>
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+
+        <!-- 左：自述 -->
+        <div class="lg:col-span-7 space-y-6">
+          <p class="reveal text-[15px] leading-[2] text-navy-700 font-light">
+            我是陈亭伊，中央民族大学网络与新媒体专业本科在读（2023.09 – 2027.06），
+            成绩 GPA 4.0 / 5.0。在校期间系统学习了新媒体用户分析、数据新闻与可视化、
+            网络舆情监测与研判、互联网营销与管理等课程，打下了扎实的内容与数据基础。
+          </p>
+          <p class="reveal text-[15px] leading-[2] text-navy-700 font-light"
+             style="transition-delay: 90ms;">
+            过去三年，我先后在国企党群工作部、新媒体科技公司、产品运营团队及人才调研机构实习，
+            完整走过内容生产、平台分发、数据复盘与流程标准化的全链路。
+            我习惯把每一次执行沉淀为可复用的 SOP，也擅长用数据定位问题、
+            用内容回应真实需求。
+          </p>
+          <p class="reveal text-[15px] leading-[2] text-navy-700 font-light"
+             style="transition-delay: 180ms;">
+            我期待在运营、策划或增长岗位上，把内容敏感度、数据分析力与跨部门协作力结合起来，
+            为组织创造可衡量的价值。
+          </p>
+        </div>
+
+        <!-- 右：能力矩阵 -->
+        <div class="lg:col-span-5">
+          <div class="reveal card rounded-2xl border border-navy-100 bg-navy-50/40 p-7">
+            <h3 class="text-[13px] font-semibold tracking-[0.16em] text-navy-400 uppercase">能力矩阵</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                内容创作 / 全链路新媒体运营
+              </li>
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                数据分析 / 传播效果复盘
+              </li>
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                短视频制作 / 视觉设计
+              </li>
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                流程标准化 / SOP 搭建
+              </li>
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                英文商务沟通 / 跨文化协作
+              </li>
+              <li class="flex items-start gap-3 text-[14px] text-navy-700 leading-relaxed">
+                <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-navy-400 shrink-0"></span>
+                项目统筹 / 跨部门协调
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       教育背景
+       ================================================================== -->
+  <section id="education" class="py-20 sm:py-28 bg-navy-50/50">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">Education</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">教育背景</h2>
+      </div>
+
+      <div class="divider mt-8 mb-14"></div>
+
+      <div class="reveal card rounded-2xl border border-navy-100 bg-white p-7 sm:p-9">
+
+        <!-- 学校 + 时间 -->
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <h3 class="text-[19px] sm:text-[21px] font-semibold text-navy-950 tracking-tight">
+              中央民族大学
+            </h3>
+            <p class="mt-2 text-[13.5px] text-navy-500">
+              网络与新媒体 · 本科
+              <span class="text-navy-300 mx-2">|</span>
+              985 · 双一流
+            </p>
+          </div>
+          <span class="shrink-0 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-100
+                       text-[12.5px] font-medium text-navy-500">
+            2023.09 – 2027.06
+          </span>
+        </div>
+
+        <!-- 成绩 -->
+        <div class="mt-8 grid grid-cols-2 gap-6 max-w-md">
+          <div class="border-l-2 border-navy-200 pl-4">
+            <div class="stat-num text-[24px] font-bold text-navy-900 leading-none">4.0<span class="text-[15px] font-semibold text-navy-300"> / 5.0</span></div>
+            <div class="mt-2 text-[12px] text-navy-400 tracking-wide">GPA</div>
+          </div>
+          <div class="border-l-2 border-navy-200 pl-4">
+            <div class="stat-num text-[24px] font-bold text-navy-900 leading-none">84.08<span class="text-[15px] font-semibold text-navy-300"> / 100</span></div>
+            <div class="mt-2 text-[12px] text-navy-400 tracking-wide">平均分</div>
+          </div>
+        </div>
+
+        <!-- 主修课程 -->
+        <div class="mt-9">
+          <h4 class="text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">主修课程</h4>
+          <div class="mt-4 flex flex-wrap gap-2.5">
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">新媒体用户分析 · 93</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">公共演讲 · 91</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">智能媒体与社会 · 91</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">互联网营销与管理 · 90</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">网页设计与制作 · 90</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">数字编辑技术 · 90</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">数据新闻与可视化</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">网络舆情监测与研判</span></span>
+            <span class="tag inline-flex items-center px-3.5 py-1.5 rounded-full border border-navy-100 bg-navy-50/60 text-[12.5px] font-medium"><span class="tag-text">数字多媒体作品创作</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       实习经历
+       ================================================================== -->
+  <section id="internship" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">Experience</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">实习经历</h2>
+      </div>
+
+      <div class="divider mt-8 mb-14"></div>
+
+      <div class="relative">
+
+        <!-- 时间轴竖线 -->
+        <div class="hidden sm:block absolute left-[7px] top-4 bottom-4 w-px
+                    bg-gradient-to-b from-transparent via-navy-200 to-transparent"
+             aria-hidden="true"></div>
+
+        <div class="space-y-7">
+
+          <!-- ---------- 京能置业 ---------- -->
+          <article class="reveal relative sm:pl-12">
+            <span class="hidden sm:block absolute left-0 top-[30px] w-3.5 h-3.5 rounded-full
+                         bg-white border-2 border-navy-400 ring-4 ring-navy-50"
+                  aria-hidden="true"></span>
+            <div class="card rounded-2xl border border-navy-100 bg-white p-6 sm:p-7">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-[16.5px] font-semibold text-navy-950 tracking-tight">京能置业股份有限公司</h3>
+                  <p class="mt-2 text-[13.5px] text-navy-500">
+                    党群工作部 · 宣传实习生
+                    <span class="text-navy-300 mx-2">|</span>
+                    <span class="text-navy-400">国企</span>
+                  </p>
                 </div>
-                <div class="actions" aria-label="快捷操作">
-                    <div class="tile">
-                        <div class="tileHead">
-                            <div class="tileTitle"><span class="tileIcon">📞</span>电话</div>
-                        </div>
-                        <div class="tileValue">18723250436</div>
-                        <div class="tileBtns">
-                            <a class="btn" href="tel:18723250436">拨打</a>
-                            <button class="btn" type="button" data-copy="18723250436">复制</button>
-                        </div>
-                    </div>
-                    <div class="tile">
-                        <div class="tileHead">
-                            <div class="tileTitle"><span class="tileIcon">✉️</span>邮箱</div>
-                        </div>
-                        <div class="tileValue">cty007376@gmail.com</div>
-                        <div class="tileBtns">
-                            <a class="btn" href="mailto:cty007376@gmail.com">发送</a>
-                            <button class="btn" type="button" data-copy="cty007376@gmail.com">复制</button>
-                        </div>
-                    </div>
-                    <div class="tile">
-                        <div class="tileHead">
-                            <div class="tileTitle"><span class="tileIcon">🧾</span>简历导出</div>
-                        </div>
-                        <div class="tileValue">浏览器打印为 PDF</div>
-                        <div class="tileBtns">
-                            <button class="btn" type="button" id="printBtn">打印 / 导出 PDF</button>
-                        </div>
-                    </div>
-                    <div class="tile">
-                        <div class="tileHead">
-                            <div class="tileTitle"><span class="tileIcon">📍</span>期望城市</div>
-                        </div>
-                        <div class="tileValue">川渝｜北京</div>
-                        <div class="tileBtns">
-                            <button class="btn" type="button" data-copy="川渝｜北京">复制</button>
-                        </div>
-                    </div>
-                </div>
+                <span class="shrink-0 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-100
+                             text-[12px] font-medium text-navy-500">
+                  2026.07 – 至今
+                </span>
+              </div>
+
+              <ul class="mt-6 space-y-3.5">
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">党建内容运营：</strong>
+                  严把宣传内容政治关与导向关，独立负责党建及企业文化稿件的撰写、图文编辑及平台运营。
+                  累计发布党建宣传稿件 <span class="font-semibold text-navy-900">30 余篇</span>，内容零差错，确保信息发布精准规范。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">活动宣传采编：</strong>
+                  主动学习并善用 AI 辅助工具（文案生成、视频剪辑、视觉设计），跟进党群活动的拍摄纪实与短视频剪辑，
+                  单条视频平均播放量突破 <span class="font-semibold text-navy-900">5000+</span>。
+                  归集整理宣传素材 300 余份，定期统计传播数据并输出效果复盘报告，
+                  活动宣传效率提升约 <span class="font-semibold text-navy-900">40%</span>。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">宣传流程标准化：</strong>
+                  梳理宣传台账，搭建素材归档与内容审核 SOP，实现宣传物料制作周期缩短
+                  <span class="font-semibold text-navy-900">30%</span>。
+                  独立制作党建展板 6 块、活动简报 12 期及其他线上线下宣传物料，支撑部门宣传工作规范化运行。
+                </li>
+              </ul>
             </div>
-        </section>
+          </article>
 
-        <!-- Dock导航 -->
-        <nav class="dock" aria-label="页面导航">
-            <a href="#edu" data-target="edu">🎓 教育背景</a>
-            <a href="#intern" data-target="intern">🏢 实习经历</a>
-            <a href="#proj" data-target="proj">✨ 项目经历</a>
-            <a href="#campus" data-target="campus">🎯 校园实践</a>
-            <a href="#skill" data-target="skill">🏆 技能荣誉</a>
-            <a href="#top" data-target="top">⬆︎ 顶部</a>
-        </nav>
-
-        <div class="sections">
-            <!-- 教育背景 -->
-            <section class="card" id="edu">
-                <div class="card-inner">
-                    <div class="sectionTitle">
-                        <h2>教育背景</h2>
-                        <div class="line"></div>
-                    </div>
-                    <div class="entry" style="margin-bottom:0; --i:1;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">中央民族大学「985 · 双一流」</div>
-                                <div class="mid">本科 · 网络与新媒体</div>
-                                <div class="right">2023.09 – 2027.06</div>
-                            </div>
-                            <div class="subline">
-                                <strong>成绩：</strong>GPA 4.0 / 5.0（84.08 / 100）
-                            </div>
-                            <div class="subline" style="margin-top:4px;">
-                                <strong>主修课程：</strong>新媒体用户分析（93）、公共演讲（91）、智能媒体与社会（91）、互联网营销与管理（90）、网页设计与制作（90）、数字编辑技术（90）、数据新闻与可视化、网络舆情监测与研判、数字多媒体作品创作等
-                            </div>
-                            <div class="subline" style="margin-top:4px;">
-                                <strong>证书：</strong>CET-4（528）· CET-6 · 普通话等级证书（二甲）· 国家人才英语（中级）
-                            </div>
-                        </div>
-                    </div>
+          <!-- ---------- 北京梧桐花开 ---------- -->
+          <article class="reveal relative sm:pl-12">
+            <span class="hidden sm:block absolute left-0 top-[30px] w-3.5 h-3.5 rounded-full
+                         bg-white border-2 border-navy-400 ring-4 ring-navy-50"
+                  aria-hidden="true"></span>
+            <div class="card rounded-2xl border border-navy-100 bg-white p-6 sm:p-7">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-[16.5px] font-semibold text-navy-950 tracking-tight">北京梧桐花开科技有限公司</h3>
+                  <p class="mt-2 text-[13.5px] text-navy-500">新媒体运营及策划</p>
                 </div>
-            </section>
+                <span class="shrink-0 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-100
+                             text-[12px] font-medium text-navy-500">
+                  2025.12 – 2026.02
+                </span>
+              </div>
 
-            <!-- 实习经历 -->
-            <section class="card" id="intern">
-                <div class="card-inner">
-                    <div class="sectionTitle">
-                        <h2>实习经历</h2>
-                        <div class="line"></div>
-                    </div>
+              <ul class="mt-6 space-y-3.5">
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">流量策划：</strong>
+                  负责平台热榜制作与优化，重构热榜内容筛选逻辑，使推荐内容点击率提升
+                  <span class="font-semibold text-navy-900">25%</span>。
+                  通过数据驱动调整选题方向，有效提升流量分发效率。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">数据统计分析：</strong>
+                  完成近 30 位财经博主的全维度数据统计，输出覆盖产出效率与传播效果的分析报告，
+                  识别并提炼高互动内容的共性特征。拆解 10+ 领域抖音博主的爆款逻辑，
+                  总结选题方向与内容结构框架，为团队内容增长提供可复用的选题参考，
+                  后续应用使内容产出效率提升 <span class="font-semibold text-navy-900">20%</span>。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">流程优化：</strong>
+                  完善支付宝电鳗平台分发 SOP，补充关键操作节点与异常处理流程。
+                  整理任务错误统计表，识别高频失误环节并提出改进方案，使运营失误率降低
+                  <span class="font-semibold text-navy-900">30%</span>，为团队效率提升提供数据支撑。
+                </li>
+              </ul>
+            </div>
+          </article>
 
-                    <!-- 京能置业 -->
-                    <div class="entry" style="--i:1;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">京能置业股份有限公司（国企）</div>
-                                <div class="mid">党群工作部 · 宣传实习生</div>
-                                <div class="right">2026.07 – 至今</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>党建内容运营：</strong>严把宣传内容政治关与导向关，独立负责党建及企业文化稿件的撰写、图文编辑及平台运营。累计发布党建宣传稿件 <span class="kpi" data-count="30" data-suffix="+">30+</span> 篇，内容零差错，确保信息发布精准规范。</li>
-                                <li><strong>活动宣传采编：</strong>主动学习并善用 AI 辅助工具（文案生成、视频剪辑、视觉设计），跟进党群活动的拍摄纪实与短视频剪辑，单条视频平均播放量突破 <span class="kpi" data-count="5000" data-suffix="+">5,000+</span>。归集整理宣传素材 <span class="kpi" data-count="300" data-suffix="+">300+</span> 份，定期统计传播数据并输出效果复盘报告，活动宣传效率提升约 <span class="kpi" data-count="40" data-suffix="%">40%</span>。</li>
-                                <li><strong>宣传流程标准化：</strong>梳理宣传台账，搭建素材归档与内容审核 SOP，实现宣传物料制作周期缩短 <span class="kpi" data-count="30" data-suffix="%">30%</span>。独立制作党建展板 <span class="kpi" data-count="6" data-suffix="块">6</span> 块、活动简报 <span class="kpi" data-count="12" data-suffix="期">12</span> 期及其他线上线下宣传物料，支撑部门宣传工作规范化运行。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 北京梧桐花开 -->
-                    <div class="entry" style="--i:2;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">北京梧桐花开科技有限公司</div>
-                                <div class="mid">新媒体运营及策划</div>
-                                <div class="right">2025.12 – 2026.02</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>流量策划：</strong>负责平台热榜制作与优化，重构热榜内容筛选逻辑，使推荐内容点击率提升 <span class="kpi" data-count="25" data-suffix="%">25%</span>。通过数据驱动调整选题方向，有效提升流量分发效率。</li>
-                                <li><strong>数据统计分析：</strong>完成近 <span class="kpi" data-count="30" data-suffix="位">30</span> 位财经博主的全维度数据统计，输出覆盖产出效率与传播效果的分析报告，识别并提炼高互动内容的共性特征。拆解 <span class="kpi" data-count="10" data-suffix="+">10+</span> 领域抖音博主的爆款逻辑，总结选题方向与内容结构框架，为团队内容增长提供可复用的选题参考，后续应用使内容产出效率提升 <span class="kpi" data-count="20" data-suffix="%">20%</span>。</li>
-                                <li><strong>流程优化：</strong>完善支付宝电鳗平台分发 SOP，补充关键操作节点与异常处理流程。整理任务错误统计表，识别高频失误环节并提出改进方案，使运营失误率降低 <span class="kpi" data-count="30" data-suffix="%">30%</span>，为团队效率提升提供数据支撑。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 北京蒸汽记忆 -->
-                    <div class="entry" style="--i:3;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">北京蒸汽记忆公司</div>
-                                <div class="mid">产品运营</div>
-                                <div class="right">2025.06 – 2025.09</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>审核生态监控：</strong>牵头完成 Slack、Zendesk 等 <span class="kpi" data-count="12" data-suffix="个">12</span> 个第三方平台的 OAuth 接入，建立“资料模板 + 审核清单 + 回调校验”标准化审核 SOP，实现平均审核时长压缩至 <span class="kpi" data-count="6" data-suffix="天">6</span> 天，一次通过率达 <span class="kpi" data-count="85" data-suffix="%">85%</span>，审核效率较行业基准提升约 <span class="kpi" data-count="50" data-suffix="%">50%</span>。</li>
-                                <li><strong>GTM 对外推广：</strong>策划并执行清华、北大等 <span class="kpi" data-count="6" data-suffix="场">6</span> 场高校推介会，统筹讲稿、Demo 演示等全流程物料，累计到场 <span class="kpi" data-count="1100" data-suffix="+">1,100+</span> 人，获取意向用户 <span class="kpi" data-count="420" data-suffix="人">420</span>，当场注册转化 <span class="kpi" data-count="230" data-suffix="人">230</span>，现场转化率达 <span class="kpi" data-count="21" data-suffix="%">21%</span>。输出中英双语 ONE-PAGER、FAQ 及集成白皮书，支撑 BD 外联与官网转化链路。</li>
-                                <li><strong>海外开发者拓展：</strong>对接海外开发者及合作伙伴 <span class="kpi" data-count="100" data-suffix="+">100+</span> 场会议，促成 <span class="kpi" data-count="32" data-suffix="家">32</span> 家企业试用、<span class="kpi" data-count="10" data-suffix="家">10</span> 家企业进入 PoC 阶段、<span class="kpi" data-count="3" data-suffix="家">3</span> 家企业达成长期合作，合作转化率达 <span class="kpi" data-count="10" data-suffix="%">10%</span>。独立负责全英文商务沟通与产品演示，支撑公司海外市场拓展。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- 奇迹创坛 -->
-                    <div class="entry" style="margin-bottom:0; --i:4;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">奇迹创坛</div>
-                                <div class="mid">人才调研</div>
-                                <div class="right">2025.01 – 2025.05</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>数据治理：</strong>收集并结构化 <span class="kpi" data-count="20000" data-suffix="+">20,000+</span> 条目标人才数据，完成全量去重与字段统一，数据上传完成率 <span class="kpi" data-count="100" data-suffix="%">100%</span>。负责薪资与标签的可视化标注及抽样校验，保障数据标注一致性达 <span class="kpi" data-count="97" data-prefix="≥" data-suffix="%">≥97%</span>，抽检错误率控制在 <span class="kpi" data-count="3" data-prefix="≤" data-suffix="%">≤3%</span> 以内。</li>
-                                <li><strong>人才 Mapping：</strong>基于需求画像锁定并触达 <span class="kpi" data-count="500" data-suffix="+">500+</span> 高潜候选人，成功达成合作 <span class="kpi" data-count="50" data-suffix="+">50+</span> 人，触达转化率达 <span class="kpi" data-count="10" data-suffix="%">10%</span>。沉淀“人才 Mapping”SOP，标准化跨部门人才挖掘流程，支撑半导体与海外医疗等跨部门项目的人才供给。</li>
-                            </ul>
-                        </div>
-                    </div>
+          <!-- ---------- 北京蒸汽记忆 ---------- -->
+          <article class="reveal relative sm:pl-12">
+            <span class="hidden sm:block absolute left-0 top-[30px] w-3.5 h-3.5 rounded-full
+                         bg-white border-2 border-navy-400 ring-4 ring-navy-50"
+                  aria-hidden="true"></span>
+            <div class="card rounded-2xl border border-navy-100 bg-white p-6 sm:p-7">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-[16.5px] font-semibold text-navy-950 tracking-tight">北京蒸汽记忆公司</h3>
+                  <p class="mt-2 text-[13.5px] text-navy-500">产品运营</p>
                 </div>
-            </section>
+                <span class="shrink-0 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-100
+                             text-[12px] font-medium text-navy-500">
+                  2025.06 – 2025.09
+                </span>
+              </div>
 
-            <!-- 项目经历 -->
-            <section class="card" id="proj">
-                <div class="card-inner">
-                    <div class="sectionTitle">
-                        <h2>项目经历</h2>
-                        <div class="line"></div>
-                    </div>
+              <ul class="mt-6 space-y-3.5">
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">审核生态监控：</strong>
+                  牵头完成 Slack、Zendesk 等 12 个第三方平台的 OAuth 接入，
+                  建立“资料模板 + 审核清单 + 回调校验”标准化审核 SOP，
+                  实现平均审核时长压缩至 6 天，一次通过率达
+                  <span class="font-semibold text-navy-900">85%</span>，
+                  审核效率较行业基准提升约 50%。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">GTM 对外推广：</strong>
+                  策划并执行清华、北大等 6 场高校推介会，统筹讲稿、Demo 演示等全流程物料，
+                  累计到场 1100+ 人，获取意向用户 420 人，当场注册转化 230 人，
+                  现场转化率达 <span class="font-semibold text-navy-900">21%</span>。
+                  输出中英双语 ONE-PAGER、FAQ 及集成白皮书，支撑 BD 外联与官网转化链路。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">海外开发者拓展：</strong>
+                  对接海外开发者及合作伙伴 100+ 场会议，促成 32 家企业试用、10 家企业进入 PoC 阶段、
+                  3 家企业达成长期合作，合作转化率达
+                  <span class="font-semibold text-navy-900">10%</span>。
+                  独立负责全英文商务沟通与产品演示，支撑公司海外市场拓展。
+                </li>
+              </ul>
+            </div>
+          </article>
 
-                    <div class="entry" style="--i:1;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">NCDA 未来设计师大赛 · 北京市三等奖</div>
-                                <div class="mid">摄影 / 后期剪辑 / 脚本构思</div>
-                                <div class="right">2025.03 – 至今</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>视觉叙事能力：</strong>独立完成全流程创作（脚本—拍摄—后期）。以“阿尔兹海默症认知错乱”为主题，设计 <span class="kpi" data-count="12" data-suffix="组">12</span> 组分镜头（主观视角 / 固定镜头交替），拍摄 <span class="kpi" data-count="200" data-suffix="+">200+</span> 素材，冷灰调色与变速剪辑强化情绪，获北京市三等奖。</li>
-                                <li><strong>跨媒介整合：</strong>综合运用构图（特写、过肩）、光线（暗角）与剪辑（动态模糊 / 黑屏叠化），将碎片素材剪辑为 3 分钟短片，节奏呼应病情三阶段，获评“视觉表现力突出”。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="entry" style="--i:2;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">中国移动创客比赛 · 颜探网页开发二等奖</div>
-                                <div class="mid">网页开发 / UI 设计</div>
-                                <div class="right">2024.10 – 2024.12</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>全栈开发能力：</strong>独立完成“颜探”网页的 UI 界面设计与前端开发，基于用户调研确定“高颜值好物推荐”的产品定位。设计并实现首页、详情页、分类页等 <span class="kpi" data-count="5" data-suffix="个">5</span> 个核心页面，用户测试满意度达 <span class="kpi" data-count="90" data-suffix="%">90%</span>。</li>
-                                <li><strong>数据驱动设计：</strong>通过 A/B 测试对比 3 套配色方案与 2 种交互布局，确定最优方案，使页面停留时长提升 <span class="kpi" data-count="35" data-suffix="%">35%</span>。将用户反馈转化为 <span class="kpi" data-count="12" data-suffix="项">12</span> 项界面优化点逐一落地，最终获得中国移动创客比赛二等奖。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="entry" style="margin-bottom:0; --i:3;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">新媒体视域下少数民族非遗文化的创新传播与立法传承——以回族民谣文化为例</div>
-                                <div class="mid">队长</div>
-                                <div class="right">2023.10 – 2024.05</div>
-                            </div>
-                            <ul class="bullets">
-                                <li><strong>课题统筹：</strong>统筹 <span class="kpi" data-count="4" data-suffix="人">4</span> 人团队，设计“新媒体传播 + 立法保护”双维研究框架，制定分阶段计划，组织线上调研 2 次，梳理文献及案例 10 余份，确保项目按期交付。</li>
-                                <li><strong>内容创作与传播：</strong>围绕回族“花儿”民谣创作新媒体内容 <span class="kpi" data-count="15" data-suffix="篇">15</span> 篇，覆盖微信公众号、抖音、B 站，累计播放量 <span class="kpi" data-count="10" data-suffix="万+">10万+</span>，其中 2 篇被校级媒体转载。</li>
-                                <li><strong>学术成果输出：</strong>组织撰写 1.5 万字结题报告，从传播学与法学双重视角提出 3 项传播策略及 2 条立法建议，获指导教师推荐并作为课程典型案例留存。</li>
-                            </ul>
-                        </div>
-                    </div>
+          <!-- ---------- 奇迹创坛 ---------- -->
+          <article class="reveal relative sm:pl-12">
+            <span class="hidden sm:block absolute left-0 top-[30px] w-3.5 h-3.5 rounded-full
+                         bg-white border-2 border-navy-400 ring-4 ring-navy-50"
+                  aria-hidden="true"></span>
+            <div class="card rounded-2xl border border-navy-100 bg-white p-6 sm:p-7">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-[16.5px] font-semibold text-navy-950 tracking-tight">奇迹创坛</h3>
+                  <p class="mt-2 text-[13.5px] text-navy-500">人才调研</p>
                 </div>
-            </section>
+                <span class="shrink-0 px-3.5 py-1.5 rounded-full bg-navy-50 border border-navy-100
+                             text-[12px] font-medium text-navy-500">
+                  2025.01 – 2025.05
+                </span>
+              </div>
 
-            <!-- 校园实践 -->
-            <section class="card" id="campus">
-                <div class="card-inner">
-                    <div class="sectionTitle">
-                        <h2>校园实践</h2>
-                        <div class="line"></div>
-                    </div>
+              <ul class="mt-6 space-y-3.5">
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">数据治理：</strong>
+                  收集并结构化 20,000+ 条目标人才数据，完成全量去重与字段统一，
+                  数据上传完成率 <span class="font-semibold text-navy-900">100%</span>。
+                  负责薪资与标签的可视化标注及抽样校验，保障数据标注一致性达 97% 以上，
+                  抽检错误率控制在 3% 以内。
+                </li>
+                <li class="relative pl-5 text-[14px] leading-[1.9] text-navy-700">
+                  <span class="absolute left-0 top-[11px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+                  <strong class="font-semibold text-navy-900">人才 Mapping：</strong>
+                  基于需求画像锁定并触达 500+ 高潜候选人，成功达成合作 50+ 人，
+                  触达转化率达 <span class="font-semibold text-navy-900">10%</span>。
+                  沉淀“人才 Mapping”SOP，标准化跨部门人才挖掘流程，
+                  支撑半导体与海外医疗等跨部门项目的人才供给。
+                </li>
+              </ul>
+            </div>
+          </article>
 
-                    <div class="entry" style="--i:1;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">校园十佳歌手</div>
-                                <div class="mid">参赛选手 · 获奖</div>
-                                <div class="right">高中阶段</div>
-                            </div>
-                            <ul class="bullets">
-                                <li>通过舞台展示与歌曲演绎，锻炼公开场合的表达能力与心理素质；将音乐爱好与校园文化相结合，用艺术形式传递青春态度，增强自我表达与情绪感染力。</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="entry" style="margin-bottom:0; --i:2;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">次元文化主题团建组织</div>
-                                <div class="mid">策划 &amp; 组织</div>
-                                <div class="right">面向 50+ 人</div>
-                            </div>
-                            <ul class="bullets">
-                                <li>负责活动方案设计、场地协调、流程把控及现场氛围调动；通过合理分组、互动环节设置与应急调整，保障活动有序推进，提升跨圈层人群的沟通协调能力与组织执行力。</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 技能 · 荣誉 · 兴趣 -->
-            <section class="card" id="skill">
-                <div class="card-inner">
-                    <div class="sectionTitle">
-                        <h2>技能 · 荣誉 · 兴趣</h2>
-                        <div class="line"></div>
-                    </div>
-
-                    <div class="entry" style="--i:1;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">技能证书</div>
-                            </div>
-                            <div class="subline" style="margin-top:8px;">
-                                大学英语 CET-4（528）· CET-6 · 普通话等级证书（二甲）· 国家人才英语（中级）
-                            </div>
-                            <div class="chips" aria-label="工具技能">
-                                <span class="chip">Premiere</span>
-                                <span class="chip">Photoshop</span>
-                                <span class="chip">Word</span>
-                                <span class="chip">Excel</span>
-                                <span class="chip">PPT</span>
-                                <span class="chip">AI 辅助创作</span>
-                                <span class="chip">数据分析</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="entry" style="--i:2;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">比赛荣誉</div>
-                            </div>
-                            <ul class="bullets">
-                                <li>2020 年全国青少年电子制作公开赛（嘉兴站）太空探测器个人赛 · <strong>国家级二等奖</strong></li>
-                                <li>2024 年 NCDA 未来设计师大赛 · <strong>省级（北京市）三等奖</strong></li>
-                                <li>2024 年中国移动创客比赛 · <strong>国家级二等奖</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="entry" style="margin-bottom:0; --i:3;">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="left">兴趣爱好</div>
-                            </div>
-                            <div class="chips" aria-label="兴趣爱好">
-                                <span class="chip">📷 摄影（人物写真 / 自然风光，500+ 张）</span>
-                                <span class="chip">✈️ 旅游（打卡 20+ 城市）</span>
-                                <span class="chip">🎤 音乐（十佳歌手）</span>
-                                <span class="chip">✍️ 写作（随笔散文 20+ 篇）</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="footer">© 2026 陈亭伊｜运营 / 策划 / 增长｜期望城市：川渝｜北京</div>
-                </div>
-            </section>
         </div>
+      </div>
     </div>
+  </section>
 
-    <div class="toast" id="toast" role="status" aria-live="polite">已复制</div>
+  <!-- ==================================================================
+       项目成果
+       ================================================================== -->
+  <section id="projects" class="py-20 sm:py-28 bg-navy-50/50">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
 
-    <script>
-        (function() {
-            'use strict';
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">Projects</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">项目成果</h2>
+      </div>
 
-            // ===== 光标光晕 =====
-            const cursorGlow = document.getElementById('cursorGlow');
-            let glowTimeout;
-            let mouseX = -500,
-                mouseY = -500,
-                currentX = -500,
-                currentY = -500;
+      <div class="divider mt-8 mb-14"></div>
 
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                if (cursorGlow) cursorGlow.style.opacity = '1';
-                clearTimeout(glowTimeout);
-                glowTimeout = setTimeout(function() {
-                    if (cursorGlow) cursorGlow.style.opacity = '0';
-                }, 2500);
-            }, { passive: true });
+      <div class="grid lg:grid-cols-3 gap-6">
 
-            document.addEventListener('mouseleave', function() {
-                if (cursorGlow) cursorGlow.style.opacity = '0';
-            });
+        <!-- 项目 1 -->
+        <article class="reveal card rounded-2xl border border-navy-100 bg-white p-7 flex flex-col">
+          <div class="flex items-center justify-between gap-3">
+            <span class="px-3 py-1 rounded-full bg-navy-50 border border-navy-100
+                         text-[11.5px] font-medium text-navy-500">设计竞赛</span>
+            <span class="text-[11.5px] text-navy-300 font-medium">2025.03 – 至今</span>
+          </div>
+          <h3 class="mt-5 text-[16px] font-semibold text-navy-950 leading-snug">
+            NCDA 未来设计师大赛<br />北京市三等奖
+          </h3>
+          <p class="mt-2 text-[12.5px] text-navy-400">摄影 / 后期剪辑 / 脚本构思</p>
 
-            function animateGlow() {
-                currentX += (mouseX - currentX) * 0.06;
-                currentY += (mouseY - currentY) * 0.06;
-                if (cursorGlow) {
-                    cursorGlow.style.left = currentX + 'px';
-                    cursorGlow.style.top = currentY + 'px';
-                }
-                requestAnimationFrame(animateGlow);
-            }
-            animateGlow();
+          <ul class="mt-6 space-y-3 text-[13.5px] leading-[1.85] text-navy-700">
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">视觉叙事：</strong>
+              独立完成脚本—拍摄—后期全流程。以“阿尔兹海默症认知错乱”为主题，
+              设计 12 组分镜头，拍摄 200+ 素材，冷灰调色与变速剪辑强化情绪。
+            </li>
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">跨媒介整合：</strong>
+              综合运用构图、光线与剪辑手法，将碎片素材剪辑为 3 分钟短片，
+              节奏呼应病情三阶段，获评“视觉表现力突出”。
+            </li>
+          </ul>
+        </article>
 
-            // ===== 滚动进度条 =====
-            const progressBar = document.getElementById('progressBar');
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                progressBar.style.width = progress + '%';
-            }, { passive: true });
+        <!-- 项目 2 -->
+        <article class="reveal card rounded-2xl border border-navy-100 bg-white p-7 flex flex-col"
+                 style="transition-delay: 100ms;">
+          <div class="flex items-center justify-between gap-3">
+            <span class="px-3 py-1 rounded-full bg-navy-50 border border-navy-100
+                         text-[11.5px] font-medium text-navy-500">产品开发</span>
+            <span class="text-[11.5px] text-navy-300 font-medium">2024.10 – 2024.12</span>
+          </div>
+          <h3 class="mt-5 text-[16px] font-semibold text-navy-950 leading-snug">
+            中国移动创客比赛<br />颜探网页开发二等奖
+          </h3>
+          <p class="mt-2 text-[12.5px] text-navy-400">网页开发 / UI 设计</p>
 
-            // ===== 数字滚动 =====
-            function animateKpi(el) {
-                if (el.dataset.animated) return;
-                el.dataset.animated = 'true';
-                const target = parseInt(el.dataset.count, 10);
-                if (isNaN(target)) return;
-                const prefix = el.dataset.prefix || '';
-                const suffix = el.dataset.suffix || '';
-                const duration = 1100;
-                const startTime = performance.now();
+          <ul class="mt-6 space-y-3 text-[13.5px] leading-[1.85] text-navy-700">
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">全栈开发：</strong>
+              独立完成“颜探”网页的 UI 设计与前端开发，基于用户调研确定“高颜值好物推荐”定位，
+              实现首页、详情页、分类页等 5 个核心页面，用户测试满意度达 90%。
+            </li>
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">数据驱动：</strong>
+              通过 A/B 测试对比 3 套配色方案与 2 种交互布局，
+              使页面停留时长提升 35%，并将用户反馈转化为 12 项界面优化点逐一落地。
+            </li>
+          </ul>
+        </article>
 
-                function frame(now) {
-                    const p = Math.min((now - startTime) / duration, 1);
-                    const eased = 1 - Math.pow(1 - p, 3);
-                    const val = Math.round(target * eased);
-                    el.textContent = prefix + val.toLocaleString('en-US') + suffix;
-                    if (p < 1) {
-                        requestAnimationFrame(frame);
-                    } else {
-                        el.textContent = prefix + target.toLocaleString('en-US') + suffix;
-                    }
-                }
-                requestAnimationFrame(frame);
-            }
+        <!-- 项目 3 -->
+        <article class="reveal card rounded-2xl border border-navy-100 bg-white p-7 flex flex-col"
+                 style="transition-delay: 200ms;">
+          <div class="flex items-center justify-between gap-3">
+            <span class="px-3 py-1 rounded-full bg-navy-50 border border-navy-100
+                         text-[11.5px] font-medium text-navy-500">学术研究</span>
+            <span class="text-[11.5px] text-navy-300 font-medium">2023.10 – 2024.05</span>
+          </div>
+          <h3 class="mt-5 text-[16px] font-semibold text-navy-950 leading-snug">
+            新媒体视域下少数民族非遗文化的创新传播与立法传承
+          </h3>
+          <p class="mt-2 text-[12.5px] text-navy-400">队长 · 以回族民谣文化为例</p>
 
-            // ===== 卡片入场观察 =====
-            const cards = document.querySelectorAll('.card');
-            const revealIO = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e) {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('reveal');
-                        e.target.querySelectorAll('.kpi[data-count]').forEach(animateKpi);
-                        revealIO.unobserve(e.target);
-                    }
-                });
-            }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-            cards.forEach(function(c) { revealIO.observe(c); });
+          <ul class="mt-6 space-y-3 text-[13.5px] leading-[1.85] text-navy-700">
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">课题统筹：</strong>
+              统筹 4 人团队，设计“新媒体传播 + 立法保护”双维研究框架，
+              组织线上调研 2 次，梳理文献及案例 10 余份，确保项目按期交付。
+            </li>
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">内容传播：</strong>
+              创作新媒体内容 15 篇，覆盖微信公众号、抖音、B 站，
+              累计播放量 10 万+，其中 2 篇被校级媒体转载。
+            </li>
+            <li class="relative pl-5">
+              <span class="absolute left-0 top-[10px] w-1.5 h-1.5 rounded-full bg-navy-300" aria-hidden="true"></span>
+              <strong class="font-semibold text-navy-900">学术输出：</strong>
+              组织撰写 1.5 万字结题报告，提出 3 项传播策略及 2 条立法建议，
+              获指导教师推荐并作为课程典型案例留存。
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            // ===== Dock 滚动监听 =====
-            const dockLinks = Array.from(document.querySelectorAll('.dock a[data-target]'));
-            const spySections = dockLinks.map(function(a) { return document.getElementById(a.dataset.target); }).filter(
-            Boolean);
+  <!-- ==================================================================
+       专业技能与证书
+       ================================================================== -->
+  <section id="skills" class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
 
-            function setActive(id) {
-                dockLinks.forEach(function(a) {
-                    a.classList.toggle('active', a.dataset.target === id);
-                });
-            }
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">Skills</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">专业技能与证书</h2>
+      </div>
 
-            const spyIO = new IntersectionObserver(function(entries) {
-                const visible = entries.filter(function(e) { return e.isIntersecting; })
-                    .sort(function(a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
-                if (visible && visible.target && visible.target.id) {
-                    setActive(visible.target.id);
-                }
-            }, { threshold: [0.15, 0.35, 0.55], rootMargin: '0px 0px -60px 0px' });
+      <div class="divider mt-8 mb-14"></div>
 
-            spySections.forEach(function(s) { spyIO.observe(s); });
-            if (spySections.length > 0) setActive(spySections[0].id);
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
 
-            // ===== Entry 3D 倾斜 =====
-            const entries = document.querySelectorAll('.entry');
-            entries.forEach(function(entry) {
-                entry.addEventListener('mousemove', function(e) {
-                    const rect = entry.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -4;
-                    const rotateY = ((x - centerX) / centerX) * 4;
-                    entry.style.transform =
-                        'translateY(-4px) scale(1.01) perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' +
-                        rotateY + 'deg)';
-                    entry.style.transition =
-                        'transform 0.15s ease-out, border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease';
-                });
-                entry.addEventListener('mouseleave', function() {
-                    entry.style.transform =
-                        'translateY(0px) perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-                    entry.style.transition =
-                        'transform 0.6s cubic-bezier(.16, 1, .3, 1), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease';
-                });
-            });
+        <!-- 左：技能进度条 -->
+        <div class="lg:col-span-7 space-y-8">
 
-            // ===== 打印 =====
-            document.getElementById('printBtn').addEventListener('click', function() {
-                window.print();
-            });
+          <div class="skill-item reveal" data-level="92">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">新媒体内容策划与运营</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">92%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            // ===== Toast + 复制 =====
-            const toast = document.getElementById('toast');
-            let toastTimer = null;
+          <div class="skill-item reveal" data-level="86" style="transition-delay: 70ms;">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">数据分析与效果复盘</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">86%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            function showToast(text) {
-                if (!toast) return;
-                toast.textContent = text;
-                toast.classList.add('show');
-                clearTimeout(toastTimer);
-                toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 1500);
-            }
+          <div class="skill-item reveal" data-level="85" style="transition-delay: 140ms;">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">短视频剪辑 · Premiere</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">85%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            function copyText(text) {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text).then(function() {
-                        showToast('已复制：' + text);
-                    }).catch(function() {
-                        fallbackCopy(text);
-                    });
-                } else {
-                    fallbackCopy(text);
-                }
-            }
+          <div class="skill-item reveal" data-level="80" style="transition-delay: 210ms;">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">视觉设计 · Photoshop</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">80%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            function fallbackCopy(text) {
-                const t = document.createElement('textarea');
-                t.value = text;
-                t.style.position = 'fixed';
-                t.style.opacity = '0';
-                t.style.pointerEvents = 'none';
-                document.body.appendChild(t);
-                t.select();
-                try {
-                    document.execCommand('copy');
-                    showToast('已复制：' + text);
-                } catch (e) {
-                    showToast('复制失败，请手动复制');
-                }
-                document.body.removeChild(t);
-            }
+          <div class="skill-item reveal" data-level="84" style="transition-delay: 280ms;">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">英文商务沟通</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">84%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            document.querySelectorAll('[data-copy]').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    copyText(btn.getAttribute('data-copy'));
-                });
-            });
+          <div class="skill-item reveal" data-level="94" style="transition-delay: 350ms;">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="text-[14px] font-medium text-navy-800">办公软件与文档汇报</span>
+              <span class="stat-num text-[12.5px] font-semibold text-navy-400">94%</span>
+            </div>
+            <div class="skill-track"><div class="skill-fill"></div></div>
+          </div>
 
-            // ===== 初始显示第一个卡片 =====
-            if (cards.length > 0 && cards[0].getBoundingClientRect().top < window.innerHeight) {
-                cards[0].classList.add('reveal');
-                cards[0].querySelectorAll('.kpi[data-count]').forEach(animateKpi);
-                revealIO.unobserve(cards[0]);
-            }
+        </div>
 
-            // ===== 按钮涟漪效果（鼠标移动） =====
-            document.querySelectorAll('.btn').forEach(function(btn) {
-                btn.addEventListener('mousemove', function(e) {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    btn.style.setProperty('--mx', x + 'px');
-                    btn.style.setProperty('--my', y + 'px');
-                });
-            });
-            // Dock 链接也加涟漪
-            document.querySelectorAll('.dock a').forEach(function(a) {
-                a.addEventListener('mousemove', function(e) {
-                    const rect = a.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    a.style.setProperty('--mx', x + 'px');
-                    a.style.setProperty('--my', y + 'px');
-                });
-            });
+        <!-- 右：证书与工具 -->
+        <div class="lg:col-span-5 space-y-8">
 
-        })();
-    </script>
+          <div class="reveal card rounded-2xl border border-navy-100 bg-navy-50/40 p-7">
+            <h3 class="text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">证书</h3>
+            <div class="mt-5 flex flex-wrap gap-2.5">
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">CET-4 · 528</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">CET-6</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">普通话二级甲等</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">国家人才英语（中级）</span></span>
+            </div>
+          </div>
+
+          <div class="reveal card rounded-2xl border border-navy-100 bg-navy-50/40 p-7"
+               style="transition-delay: 120ms;">
+            <h3 class="text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">工具</h3>
+            <div class="mt-5 flex flex-wrap gap-2.5">
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">Premiere</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">Photoshop</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">Word</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">Excel</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">PowerPoint</span></span>
+              <span class="tag inline-flex items-center px-3.5 py-2 rounded-full border border-navy-200 bg-white text-[12.5px] font-medium"><span class="tag-text">AI 辅助工具</span></span>
+            </div>
+          </div>
+
+          <div class="reveal card rounded-2xl border border-navy-100 bg-navy-50/40 p-7"
+               style="transition-delay: 240ms;">
+            <h3 class="text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">荣誉</h3>
+            <ul class="mt-5 space-y-3 text-[13px] leading-[1.8] text-navy-700">
+              <li class="flex items-start gap-3">
+                <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-navy-300 shrink-0" aria-hidden="true"></span>
+                2020 全国青少年电子制作公开赛（嘉兴站）· 国家级二等奖
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-navy-300 shrink-0" aria-hidden="true"></span>
+                2024 NCDA 未来设计师大赛 · 省级（北京市）三等奖
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-[8px] w-1.5 h-1.5 rounded-full bg-navy-300 shrink-0" aria-hidden="true"></span>
+                2024 中国移动创客比赛 · 国家级二等奖
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       联系方式
+       ================================================================== -->
+  <section id="contact" class="py-20 sm:py-28 bg-navy-50/50">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+
+      <div class="reveal max-w-2xl">
+        <span class="text-[11px] font-semibold tracking-[0.28em] text-navy-300 uppercase">Contact</span>
+        <h2 class="mt-3 text-[26px] sm:text-[32px] font-bold text-navy-950 tracking-tight">联系方式</h2>
+      </div>
+
+      <div class="divider mt-8 mb-14"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <a href="tel:18723250436"
+           class="reveal card rounded-2xl border border-navy-100 bg-white p-6 block">
+          <div class="w-9 h-9 rounded-lg bg-navy-50 border border-navy-100
+                      flex items-center justify-center text-navy-600">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3 class="mt-5 text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">电话</h3>
+          <p class="mt-2 text-[14.5px] font-medium text-navy-900">187 2325 0436</p>
+        </a>
+
+        <a href="mailto:cty007376@gmail.com"
+           class="reveal card rounded-2xl border border-navy-100 bg-white p-6 block"
+           style="transition-delay: 90ms;">
+          <div class="w-9 h-9 rounded-lg bg-navy-50 border border-navy-100
+                      flex items-center justify-center text-navy-600">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-10 6L2 7"/>
+            </svg>
+          </div>
+          <h3 class="mt-5 text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">邮箱</h3>
+          <p class="mt-2 text-[13.5px] font-medium text-navy-900 break-all">cty007376@gmail.com</p>
+        </a>
+
+        <div class="reveal card rounded-2xl border border-navy-100 bg-white p-6"
+             style="transition-delay: 180ms;">
+          <div class="w-9 h-9 rounded-lg bg-navy-50 border border-navy-100
+                      flex items-center justify-center text-navy-600">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="mt-5 text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">所在地</h3>
+          <p class="mt-2 text-[14.5px] font-medium text-navy-900">北京 · 期望川渝 / 北京</p>
+        </div>
+
+        <a href="https://chentingyi050415.github.io/chentingyi/homepage/" target="_blank" rel="noopener"
+           class="reveal card rounded-2xl border border-navy-100 bg-white p-6 block"
+           style="transition-delay: 270ms;">
+          <div class="w-9 h-9 rounded-lg bg-navy-50 border border-navy-100
+                      flex items-center justify-center text-navy-600">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="mt-5 text-[12px] font-semibold tracking-[0.16em] text-navy-400 uppercase">个人主页</h3>
+          <p class="mt-2 text-[13.5px] font-medium text-navy-900">查看在线作品集</p>
+        </a>
+
+      </div>
+
+      <!-- 底部 CTA -->
+      <div class="reveal mt-16 rounded-2xl border border-navy-100 bg-white p-9 sm:p-12 text-center">
+        <h3 class="text-[20px] sm:text-[24px] font-bold text-navy-950 tracking-tight">
+          期待与您共事
+        </h3>
+        <p class="mt-4 text-[14px] leading-[1.9] text-navy-500 font-light max-w-xl mx-auto">
+          如果您正在寻找一位兼具内容敏感度、数据分析力与执行落地能力的运营 / 策划 / 增长人才，
+          欢迎随时与我联系。
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="mailto:cty007376@gmail.com" class="btn-primary">发送邮件</a>
+          <a href="tel:18723250436" class="btn-ghost">电话沟通</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="border-t border-navy-100 py-9">
+  <div class="mx-auto max-w-6xl px-5 sm:px-6
+              flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-[12.5px] text-navy-400">
+      © 2026 陈亭伊 Chen Tingyi · 运营 / 策划 / 增长
+    </p>
+    <p class="text-[12.5px] text-navy-300">
+      Designed &amp; Built with care
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ====================================================================
+   全部交互逻辑（原生 JavaScript，无第三方依赖）
+   ==================================================================== */
+(function () {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer  = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ------------------------------------------------------------------
+     1. 光标跟随光晕
+     ------------------------------------------------------------------ */
+  (function initCursorGlow() {
+    const glow = document.getElementById('cursor-glow');
+    if (!glow) return;
+
+    if (!finePointer || reduceMotion) {
+      glow.style.display = 'none';
+      return;
+    }
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    window.addEventListener('mousemove', function (e) {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      glow.style.opacity = '1';
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', function () {
+      glow.style.opacity = '0';
+    });
+
+    (function loop() {
+      // 缓动跟随，避免生硬移动
+      currentX += (targetX - currentX) * 0.09;
+      currentY += (targetY - currentY) * 0.09;
+      glow.style.transform =
+        'translate3d(' + currentX.toFixed(1) + 'px,' + currentY.toFixed(1) + 'px,0)';
+      requestAnimationFrame(loop);
+    })();
+  })();
+
+  /* ------------------------------------------------------------------
+     2. 滚动状态：动态导航栏 / 回到顶部 / 视差
+     ------------------------------------------------------------------ */
+  const backTopBtn  = document.getElementById('backTop');
+  const parallaxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  let ticking = false;
+
+  function updateOnScroll() {
+    const y = window.scrollY || document.documentElement.scrollTop;
+
+    // 导航栏浮动状态
+    document.body.classList.toggle('is-scrolled', y > 24);
+
+    // 回到顶部按钮显隐
+    if (backTopBtn) backTopBtn.classList.toggle('show', y > 480);
+
+    // 视差：仅在首屏范围内生效，避免影响下方内容
+    const heroLimit = window.innerHeight * 1.4;
+    for (let i = 0; i < parallaxEls.length; i++) {
+      const el = parallaxEls[i];
+      const speed = parseFloat(el.dataset.parallax) || 0;
+      const offset = y < heroLimit ? y * speed : heroLimit * speed;
+      el.style.transform = 'translate3d(0,' + offset.toFixed(2) + 'px,0)';
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(updateOnScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateOnScroll();
+
+  // 回到顶部点击
+  if (backTopBtn) {
+    backTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     3. 滚动触发显现动画（顺序入场）
+     ------------------------------------------------------------------ */
+  (function initReveal() {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ------------------------------------------------------------------
+     4. 技能进度条：滚动进入视口后动画展开
+     ------------------------------------------------------------------ */
+  (function initSkillBars() {
+    const items = document.querySelectorAll('.skill-item');
+    if (!items.length) return;
+
+    function fill(item) {
+      const bar = item.querySelector('.skill-fill');
+      if (!bar) return;
+      const level = parseFloat(item.dataset.level) || 0;
+      // 下一帧再赋值，确保 CSS 过渡能被触发
+      window.setTimeout(function () {
+        bar.style.width = level + '%';
+      }, 80);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(fill);
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          fill(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    items.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ------------------------------------------------------------------
+     5. 数字滚动计数（首屏关键数据）
+     ------------------------------------------------------------------ */
+  (function initCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    function run(el) {
+      const target   = parseFloat(el.dataset.count) || 0;
+      const suffix   = el.dataset.suffix || '';
+      const prefix   = el.dataset.prefix || '';
+      const duration = 1400;
+      const startAt  = performance.now();
+
+      if (reduceMotion) {
+        el.textContent = prefix + target.toLocaleString('en-US') + suffix;
+        return;
+      }
+
+      function tick(now) {
+        const p = Math.min((now - startAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        const val = Math.round(target * eased);
+        el.textContent = prefix + val.toLocaleString('en-US') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(run);
+      return;
+    }
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          run(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ------------------------------------------------------------------
+     6. 导航栏当前区块高亮
+     ------------------------------------------------------------------ */
+  (function initScrollSpy() {
+    const links = Array.prototype.slice.call(
+      document.querySelectorAll('.nav-link[data-section]')
+    );
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    const sections = links
+      .map(function (l) { return document.getElementById(l.dataset.section); })
+      .filter(Boolean);
+
+    const io = new IntersectionObserver(function (entries) {
+      const visible = entries
+        .filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
+
+      if (!visible) return;
+
+      const id = visible.target.id;
+      links.forEach(function (l) {
+        l.classList.toggle('active', l.dataset.section === id);
+      });
+    }, { threshold: [0.15, 0.35, 0.6], rootMargin: '-80px 0px -55% 0px' });
+
+    sections.forEach(function (s) { io.observe(s); });
+  })();
+
+  /* ------------------------------------------------------------------
+     7. 移动端菜单
+     ------------------------------------------------------------------ */
+  (function initMobileMenu() {
+    const btn  = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', function () {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 视口变宽时自动收起
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+
+})();
+</script>
+
 </body>
 </html>
